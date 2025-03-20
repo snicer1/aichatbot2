@@ -142,5 +142,374 @@
   "footer": {
     "contactUs": "CONTACT US",
     "allRightsReserved": "All rights reserved."
+  },
+  "services": {
+    "hero": {
+      "title": "Our Solutions",
+      "description": "Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations and explore real-world success stories.",
+      "getStarted": "Get Started",
+      "howItWorks": "How It Works"
+    },
+    "tabs": {
+      "solutions": "Our Solutions",
+      "caseStudies": "Case Studies"
+    },
+    "content": {
+      "solutions": {
+        "title": "Our Solutions",
+        "description": "Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations"
+      },
+      "caseStudies": {
+        "title": "Case Studies",
+        "description": "Discover how our AI solutions have transformed businesses across industries",
+        "challengeLabel": "Challenge:",
+        "solutionLabel": "Solution:",
+        "resultsLabel": "Results:"
+      }
+    },
+    "categories": {
+      "automation": {
+        "title": "Process Automation",
+        "services": [
+          {
+            "title": "Documentation Management",
+            "description": "Intelligent document organization and process documentation with AI-powered chatbots"
+          },
+          {
+            "title": "Data Automation",
+            "description": "Streamline data processing workflows and automate repetitive tasks"
+          }
+        ]
+      },
+      "customer-support": {
+        "title": "Customer Support",
+        "services": [
+          {
+            "title": "Support Chatbots",
+            "description": "AI-powered chatbots for 24/7 customer support and FAQ handling"
+          }
+        ]
+      },
+      "project-management": {
+        "title": "Project Management",
+        "services": [
+          {
+            "title": "Progress Tracking",
+            "description": "Automated progress reports and deadline management"
+          }
+        ]
+      },
+      "hr": {
+        "title": "HR Solutions",
+        "services": [
+          {
+            "title": "Recruitment Automation",
+            "description": "AI-powered CV screening and candidate matching"
+          }
+        ]
+      },
+      "marketing": {
+        "title": "Marketing Automation",
+        "services": [
+          {
+            "title": "Campaign Management",
+            "description": "Automated email campaigns and content generation"
+          }
+        ]
+      },
+      "finance": {
+        "title": "Financial Solutions",
+        "services": [
+          {
+            "title": "Financial Insights",
+            "description": "Automated financial reporting and anomaly detection"
+          }
+        ]
+      },
+      "resource": {
+        "title": "Resource Management",
+        "services": [
+          {
+            "title": "Resource Planning",
+            "description": "AI-driven resource prediction and automated ordering"
+          }
+        ]
+      },
+      "sales": {
+        "title": "Sales & CRM",
+        "services": [
+          {
+            "title": "Sales Automation",
+            "description": "Lead tracking and sales trend prediction"
+          }
+        ]
+      },
+      "technical": {
+        "title": "Technical Support",
+        "services": [
+          {
+            "title": "Technical Automation",
+            "description": "Automated error tracking and technical support chatbots"
+          }
+        ]
+      },
+      "integration": {
+        "title": "System Integration",
+        "services": [
+          {
+            "title": "Workflow Integration",
+            "description": "Seamless connection of business applications"
+          }
+        ]
+      },
+      "notifications": {
+        "title": "Notifications & Alerts",
+        "services": [
+          {
+            "title": "Smart Alerts",
+            "description": "Automated task reminders and risk alerts"
+          }
+        ]
+      }
+    },
+    "caseStudies": {
+      "manufacturing": {
+        "title": "Manufacturing Excellence",
+        "company": "Global Manufacturing Corp",
+        "challenge": "Inefficient production processes leading to delays and increased costs",
+        "solution": "Implemented AI-driven process automation and predictive maintenance systems",
+        "results": [
+          "35% increase in productivity",
+          "60% reduction in downtime",
+          "25% cost savings"
+        ]
+      },
+      "healthcare": {
+        "title": "Healthcare Innovation",
+        "company": "MedTech Solutions",
+        "challenge": "Manual patient data management causing delays in care delivery",
+        "solution": "Deployed AI chatbots for patient scheduling and automated documentation",
+        "results": [
+          "50% faster patient processing",
+          "40% improved efficiency",
+          "30% operational savings"
+        ]
+      },
+      "retail": {
+        "title": "Retail Transformation",
+        "company": "Smart Retail Co",
+        "challenge": "Inefficient inventory management and customer service",
+        "solution": "Implemented AI-powered inventory prediction and customer service automation",
+        "results": [
+          "45% reduced stockouts",
+          "90% faster response times",
+          "20% increased sales"
+        ]
+      },
+      "education": {
+        "title": "Education Evolution",
+        "company": "EduTech Institute",
+        "challenge": "Complex administrative processes and student support needs",
+        "solution": "Deployed comprehensive automation system for administration and student services",
+        "results": [
+          "70% faster processing",
+          "24/7 student support",
+          "35% cost reduction"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Contact us today to discuss how we can help automate and optimize your business processes",
+      "contactUs": "Contact Us",
+      "learnMore": "Learn More"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog & Insights",
+      "description": "Stay updated with the latest insights, trends, and news in AI and automation"
+    },
+    "search": {
+      "placeholder": "Search articles..."
+    },
+    "categories": {
+      "all": "All",
+      "ai": "AI Technology",
+      "automation": "Automation",
+      "business": "Business",
+      "trends": "Industry Trends"
+    },
+    "readMore": "Read More",
+    "posts": {
+      "1": {
+        "title": "The Future of AI in Business Process Automation",
+        "excerpt": "Explore how artificial intelligence is revolutionizing business process automation and what it means for the future of work.",
+        "author": "John Smith",
+        "readTime": "5 min read"
+      },
+      "2": {
+        "title": "Implementing Chatbots: Best Practices and Common Pitfalls",
+        "excerpt": "Learn the essential best practices for successful chatbot implementation and how to avoid common mistakes.",
+        "author": "Sarah Johnson",
+        "readTime": "8 min read"
+      },
+      "3": {
+        "title": "2024 Trends in Business Process Automation",
+        "excerpt": "Discover the latest trends shaping the future of business process automation and digital transformation.",
+        "author": "Michael Chen",
+        "readTime": "6 min read"
+      },
+      "4": {
+        "title": "ROI of AI Implementation: A Case Study Analysis",
+        "excerpt": "A detailed analysis of the return on investment for AI implementation across different industries.",
+        "author": "Emma Davis",
+        "readTime": "10 min read"
+      }
+    },
+    "newsletter": {
+      "title": "Stay Updated",
+      "description": "Subscribe to our newsletter for the latest insights and trends",
+      "emailPlaceholder": "Enter your email",
+      "subscribeButton": "Subscribe"
+    }
+  },
+  "caseStudies": {
+    "hero": {
+      "title": "Case Studies",
+      "description": "Discover how our AI solutions have transformed businesses across industries"
+    },
+    "labels": {
+      "challenge": "Challenge:",
+      "solution": "Solution:",
+      "results": "Results:"
+    },
+    "studies": {
+      "manufacturing": {
+        "title": "Manufacturing Excellence",
+        "company": "Global Manufacturing Corp",
+        "challenge": "Inefficient production processes leading to delays and increased costs",
+        "solution": "Implemented AI-driven process automation and predictive maintenance systems",
+        "results": [
+          "35% increase in productivity",
+          "60% reduction in downtime",
+          "25% cost savings"
+        ]
+      },
+      "healthcare": {
+        "title": "Healthcare Innovation",
+        "company": "MedTech Solutions",
+        "challenge": "Manual patient data management causing delays in care delivery",
+        "solution": "Deployed AI chatbots for patient scheduling and automated documentation",
+        "results": [
+          "50% faster patient processing",
+          "40% improved efficiency",
+          "30% operational savings"
+        ]
+      },
+      "retail": {
+        "title": "Retail Transformation",
+        "company": "Smart Retail Co",
+        "challenge": "Inefficient inventory management and customer service",
+        "solution": "Implemented AI-powered inventory prediction and customer service automation",
+        "results": [
+          "45% reduced stockouts",
+          "90% faster response times",
+          "20% increased sales"
+        ]
+      },
+      "education": {
+        "title": "Education Evolution",
+        "company": "EduTech Institute",
+        "challenge": "Complex administrative processes and student support needs",
+        "solution": "Deployed comprehensive automation system for administration and student services",
+        "results": [
+          "70% faster processing",
+          "24/7 student support",
+          "35% cost reduction"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Join these success stories and revolutionize your operations with our AI solutions",
+      "contactButton": "Contact Us Today"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "title": "How It Works",
+      "description": "Discover our proven process for implementing AI-powered automation solutions in your business. From initial consultation to ongoing optimization, we guide you through every step.",
+      "getStarted": "Get Started",
+      "ourServices": "Our Services"
+    },
+    "process": {
+      "title": "Our Process",
+      "description": "We follow a structured approach to ensure successful implementation of AI solutions that deliver real business value."
+    },
+    "processSteps": {
+      "initialConsultation": {
+        "title": "Initial Consultation",
+        "description": "We begin by understanding your business needs, challenges, and goals through a detailed consultation."
+      },
+      "analysisPlanning": {
+        "title": "Analysis & Planning",
+        "description": "Our experts analyze your processes and develop a customized automation strategy."
+      },
+      "solutionDesign": {
+        "title": "Solution Design",
+        "description": "We design AI-powered solutions tailored to your specific requirements and workflow."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "Our team implements the solution while ensuring minimal disruption to your operations."
+      },
+      "trainingSupport": {
+        "title": "Training & Support",
+        "description": "We provide comprehensive training and ongoing support to ensure smooth adoption."
+      },
+      "monitoringOptimization": {
+        "title": "Monitoring & Optimization",
+        "description": "Continuous monitoring and optimization ensure maximum efficiency and ROI."
+      }
+    },
+    "benefits": {
+      "title": "Key Benefits",
+      "description": "Our AI-powered automation solutions deliver tangible benefits that transform your business operations.",
+      "increasedEfficiency": {
+        "title": "Increased Efficiency",
+        "description": "Automate repetitive tasks and streamline workflows for better productivity."
+      },
+      "costReduction": {
+        "title": "Cost Reduction",
+        "description": "Minimize operational costs through intelligent automation and optimization."
+      },
+      "improvedAccuracy": {
+        "title": "Improved Accuracy",
+        "description": "Eliminate human error and ensure consistent quality in all processes."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions about our implementation process.",
+      "implementationTime": {
+        "question": "How long does implementation typically take?",
+        "answer": "Implementation timelines vary based on project complexity, but typically range from 2-8 weeks. We provide detailed timelines during the planning phase."
+      },
+      "ongoingSupport": {
+        "question": "Do you offer ongoing support after implementation?",
+        "answer": "Yes, we provide comprehensive support packages to ensure your solution continues to perform optimally. Our team is available for troubleshooting, updates, and optimization."
+      },
+      "dataSecurity": {
+        "question": "How do you ensure data security during implementation?",
+        "answer": "We follow industry best practices for data security, including encryption, secure access controls, and compliance with relevant regulations like GDPR. We can sign NDAs and provide detailed security documentation."
+      }
+    },
+    "cta": {
+      "title": "Ready to Start Your Digital Transformation?",
+      "description": "Contact us today to discuss how we can help automate your business processes",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More"
+    }
   }
 }

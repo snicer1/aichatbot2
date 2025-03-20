@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaIndustry,
   FaHospital,
@@ -14,7 +15,7 @@ import {
 } from 'react-icons/fa';
 
 const CaseStudies = () => {
-  const [language] = useState('en');
+  const { t } = useTranslation();
   const [selectedCase, setSelectedCase] = useState(null);
 
   // Animation variants
@@ -181,7 +182,7 @@ const CaseStudies = () => {
               marginBottom: 'var(--spacing-lg)',
             }}
           >
-            {language === 'en' ? 'Case Studies' : 'Case Studies'}
+            {t('caseStudies.hero.title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -191,9 +192,7 @@ const CaseStudies = () => {
               margin: '0 auto',
             }}
           >
-            {language === 'en'
-              ? 'Discover how our AI solutions have transformed businesses across industries'
-              : 'Zobacz, jak nasze rozwiązania AI transformują firmy w różnych branżach'}
+            {t('caseStudies.hero.description')}
           </motion.p>
         </div>
       </motion.section>
@@ -238,7 +237,7 @@ const CaseStudies = () => {
                   gap: 'var(--spacing-md)',
                 }}>
                   <study.icon style={{ fontSize: 'var(--font-size-2xl)' }} />
-                  <h3 style={{ margin: 0 }}>{study.title[language]}</h3>
+                  <h3 style={{ margin: 0 }}>{t(`caseStudies.studies.${study.id}.title`)}</h3>
                 </div>
                 
                 <div style={{ padding: 'var(--spacing-lg)' }}>
@@ -247,27 +246,27 @@ const CaseStudies = () => {
                     color: 'var(--text-secondary)',
                     marginBottom: 'var(--spacing-md)',
                   }}>
-                    {study.company[language]}
+                    {t(`caseStudies.studies.${study.id}.company`)}
                   </p>
                   
                   <h4 style={{
                     fontSize: 'var(--font-size-base)',
                     marginBottom: 'var(--spacing-sm)',
                   }}>
-                    {language === 'en' ? 'Challenge:' : 'Wyzwanie:'}
+                    {t('caseStudies.labels.challenge')}
                   </h4>
                   <p style={{ marginBottom: 'var(--spacing-md)' }}>
-                    {study.challenge[language]}
+                    {t(`caseStudies.studies.${study.id}.challenge`)}
                   </p>
 
                   <h4 style={{
                     fontSize: 'var(--font-size-base)',
                     marginBottom: 'var(--spacing-sm)',
                   }}>
-                    {language === 'en' ? 'Solution:' : 'Rozwiązanie:'}
+                    {t('caseStudies.labels.solution')}
                   </h4>
                   <p style={{ marginBottom: 'var(--spacing-md)' }}>
-                    {study.solution[language]}
+                    {t(`caseStudies.studies.${study.id}.solution`)}
                   </p>
 
                   {/* Results */}
@@ -284,7 +283,7 @@ const CaseStudies = () => {
                       fontSize: 'var(--font-size-base)',
                       marginBottom: 'var(--spacing-md)',
                     }}>
-                      {language === 'en' ? 'Results:' : 'Rezultaty:'}
+                      {t('caseStudies.labels.results')}
                     </h4>
                     <div style={{
                       display: 'grid',
@@ -306,7 +305,7 @@ const CaseStudies = () => {
                               fontSize: 'var(--font-size-xl)',
                             }}
                           />
-                          <span>{result.text[language]}</span>
+                          <span>{t(`caseStudies.studies.${study.id}.results.${index}`)}</span>
                         </div>
                       ))}
                     </div>
@@ -337,9 +336,7 @@ const CaseStudies = () => {
               marginBottom: 'var(--spacing-lg)',
             }}
           >
-            {language === 'en'
-              ? 'Ready to Transform Your Business?'
-              : 'Gotowy na Transformację Swojej Firmy?'}
+            {t('caseStudies.cta.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -349,9 +346,7 @@ const CaseStudies = () => {
               margin: '0 auto var(--spacing-xl)',
             }}
           >
-            {language === 'en'
-              ? 'Join these success stories and revolutionize your operations with our AI solutions'
-              : 'Dołącz do tych historii sukcesu i zrewolucjonizuj swoje operacje z naszymi rozwiązaniami AI'}
+            {t('caseStudies.cta.description')}
           </motion.p>
           <motion.div
             variants={itemVariants}
@@ -367,7 +362,7 @@ const CaseStudies = () => {
                 display: 'inline-block',
               }}
             >
-              {language === 'en' ? 'Contact Us Today' : 'Skontaktuj się z Nami'}
+              {t('caseStudies.cta.contactButton')}
             </Link>
           </motion.div>
         </div>

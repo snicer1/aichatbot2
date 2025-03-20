@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaLightbulb,
   FaClipboardCheck,
@@ -17,7 +18,7 @@ import {
 } from 'react-icons/fa';
 
 const HowItWorks = () => {
-  const [language] = useState('en');
+  const { t } = useTranslation();
 
   // Animation variants
   const containerVariants = {
@@ -45,51 +46,33 @@ const HowItWorks = () => {
   const processSteps = [
     {
       icon: FaLightbulb,
-      title: { en: 'Initial Consultation', pl: 'Wstępna Konsultacja' },
-      description: {
-        en: 'We begin by understanding your business needs, challenges, and goals through a detailed consultation.',
-        pl: 'Zaczynamy od zrozumienia potrzeb, wyzwań i celów Twojej firmy poprzez szczegółową konsultację.'
-      }
+      titleKey: 'howItWorks.processSteps.initialConsultation.title',
+      descriptionKey: 'howItWorks.processSteps.initialConsultation.description'
     },
     {
       icon: FaClipboardCheck,
-      title: { en: 'Analysis & Planning', pl: 'Analiza i Planowanie' },
-      description: {
-        en: 'Our experts analyze your processes and develop a customized automation strategy.',
-        pl: 'Nasi eksperci analizują Twoje procesy i opracowują dostosowaną strategię automatyzacji.'
-      }
+      titleKey: 'howItWorks.processSteps.analysisPlanning.title',
+      descriptionKey: 'howItWorks.processSteps.analysisPlanning.description'
     },
     {
       icon: FaCogs,
-      title: { en: 'Solution Design', pl: 'Projektowanie Rozwiązania' },
-      description: {
-        en: 'We design AI-powered solutions tailored to your specific requirements and workflow.',
-        pl: 'Projektujemy rozwiązania oparte na AI dostosowane do Twoich konkretnych wymagań i przepływu pracy.'
-      }
+      titleKey: 'howItWorks.processSteps.solutionDesign.title',
+      descriptionKey: 'howItWorks.processSteps.solutionDesign.description'
     },
     {
       icon: FaCode,
-      title: { en: 'Implementation', pl: 'Wdrożenie' },
-      description: {
-        en: 'Our team implements the solution while ensuring minimal disruption to your operations.',
-        pl: 'Nasz zespół wdraża rozwiązanie, zapewniając minimalne zakłócenia w działalności.'
-      }
+      titleKey: 'howItWorks.processSteps.implementation.title',
+      descriptionKey: 'howItWorks.processSteps.implementation.description'
     },
     {
       icon: FaUsersCog,
-      title: { en: 'Training & Support', pl: 'Szkolenie i Wsparcie' },
-      description: {
-        en: 'We provide comprehensive training and ongoing support to ensure smooth adoption.',
-        pl: 'Zapewniamy kompleksowe szkolenie i ciągłe wsparcie dla sprawnej adaptacji.'
-      }
+      titleKey: 'howItWorks.processSteps.trainingSupport.title',
+      descriptionKey: 'howItWorks.processSteps.trainingSupport.description'
     },
     {
       icon: FaChartLine,
-      title: { en: 'Monitoring & Optimization', pl: 'Monitorowanie i Optymalizacja' },
-      description: {
-        en: 'Continuous monitoring and optimization ensure maximum efficiency and ROI.',
-        pl: 'Ciągłe monitorowanie i optymalizacja zapewniają maksymalną wydajność i zwrot z inwestycji.'
-      }
+      titleKey: 'howItWorks.processSteps.monitoringOptimization.title',
+      descriptionKey: 'howItWorks.processSteps.monitoringOptimization.description'
     }
   ];
 
@@ -97,61 +80,34 @@ const HowItWorks = () => {
   const benefits = [
     {
       icon: FaRocket,
-      title: { en: 'Increased Efficiency', pl: 'Zwiększona Wydajność' },
-      description: {
-        en: 'Automate repetitive tasks and streamline workflows for better productivity.',
-        pl: 'Automatyzacja powtarzalnych zadań i usprawnienie przepływów pracy dla lepszej produktywności.'
-      }
+      titleKey: 'howItWorks.benefits.increasedEfficiency.title',
+      descriptionKey: 'howItWorks.benefits.increasedEfficiency.description'
     },
     {
       icon: FaChartLine,
-      title: { en: 'Cost Reduction', pl: 'Redukcja Kosztów' },
-      description: {
-        en: 'Minimize operational costs through intelligent automation and optimization.',
-        pl: 'Minimalizacja kosztów operacyjnych poprzez inteligentną automatyzację i optymalizację.'
-      }
+      titleKey: 'howItWorks.benefits.costReduction.title',
+      descriptionKey: 'howItWorks.benefits.costReduction.description'
     },
     {
       icon: FaCheckCircle,
-      title: { en: 'Improved Accuracy', pl: 'Zwiększona Dokładność' },
-      description: {
-        en: 'Eliminate human error and ensure consistent quality in all processes.',
-        pl: 'Eliminacja błędów ludzkich i zapewnienie spójnej jakości we wszystkich procesach.'
-      }
+      titleKey: 'howItWorks.benefits.improvedAccuracy.title',
+      descriptionKey: 'howItWorks.benefits.improvedAccuracy.description'
     }
   ];
 
   // FAQ items
   const faqItems = [
     {
-      question: {
-        en: 'How long does implementation typically take?',
-        pl: 'Jak długo zwykle trwa wdrożenie?'
-      },
-      answer: {
-        en: 'Implementation timelines vary based on project complexity, but typically range from 2-8 weeks. We provide detailed timelines during the planning phase.',
-        pl: 'Czas wdrożenia zależy od złożoności projektu, ale zazwyczaj wynosi od 2 do 8 tygodni. Dostarczamy szczegółowe harmonogramy podczas fazy planowania.'
-      }
+      questionKey: 'howItWorks.faq.implementationTime.question',
+      answerKey: 'howItWorks.faq.implementationTime.answer'
     },
     {
-      question: {
-        en: 'Do you offer ongoing support after implementation?',
-        pl: 'Czy oferujecie ciągłe wsparcie po wdrożeniu?'
-      },
-      answer: {
-        en: 'Yes, we provide comprehensive support packages to ensure your solution continues to perform optimally. Our team is available for troubleshooting, updates, and optimization.',
-        pl: 'Tak, oferujemy kompleksowe pakiety wsparcia, aby zapewnić optymalne działanie Twojego rozwiązania. Nasz zespół jest dostępny do rozwiązywania problemów, aktualizacji i optymalizacji.'
-      }
+      questionKey: 'howItWorks.faq.ongoingSupport.question',
+      answerKey: 'howItWorks.faq.ongoingSupport.answer'
     },
     {
-      question: {
-        en: 'How do you ensure data security during implementation?',
-        pl: 'Jak zapewniacie bezpieczeństwo danych podczas wdrażania?'
-      },
-      answer: {
-        en: 'We follow industry best practices for data security, including encryption, secure access controls, and compliance with relevant regulations like GDPR. We can sign NDAs and provide detailed security documentation.',
-        pl: 'Stosujemy najlepsze praktyki branżowe w zakresie bezpieczeństwa danych, w tym szyfrowanie, bezpieczne kontrole dostępu i zgodność z odpowiednimi przepisami, takimi jak RODO. Możemy podpisać umowy o zachowaniu poufności i dostarczyć szczegółową dokumentację bezpieczeństwa.'
-      }
+      questionKey: 'howItWorks.faq.dataSecurity.question',
+      answerKey: 'howItWorks.faq.dataSecurity.answer'
     }
   ];
 
@@ -227,7 +183,7 @@ const HowItWorks = () => {
               color: 'var(--text-primary)',
             }}
           >
-            {language === 'en' ? 'How It Works' : 'Jak To Działa'}
+            {t('howItWorks.hero.title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -238,9 +194,7 @@ const HowItWorks = () => {
               lineHeight: 1.6,
             }}
           >
-            {language === 'en'
-              ? 'Discover our proven process for implementing AI-powered automation solutions in your business. From initial consultation to ongoing optimization, we guide you through every step.'
-              : 'Poznaj nasz sprawdzony proces wdrażania rozwiązań automatyzacji opartych na AI w Twojej firmie. Od początkowej konsultacji po ciągłą optymalizację, przeprowadzimy Cię przez każdy krok.'}
+            {t('howItWorks.hero.description')}
           </motion.p>
           <motion.div
             variants={itemVariants}
@@ -273,7 +227,7 @@ const HowItWorks = () => {
                   boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                 }}
               >
-                {language === 'en' ? "Get Started" : 'Rozpocznij'}
+                {t('howItWorks.hero.getStarted')}
                 <FaArrowRight />
               </Link>
             </motion.div>
@@ -297,7 +251,7 @@ const HowItWorks = () => {
                   border: '2px solid var(--primary-color)',
                 }}
               >
-                {language === 'en' ? "Our Services" : 'Nasze Usługi'}
+                {t('howItWorks.hero.ourServices')}
                 <FaArrowRight />
               </Link>
             </motion.div>
@@ -327,7 +281,7 @@ const HowItWorks = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en' ? 'Our Process' : 'Nasz Proces'}
+            {t('howItWorks.process.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -339,9 +293,7 @@ const HowItWorks = () => {
               margin: '0 auto var(--spacing-2xl)',
             }}
           >
-            {language === 'en'
-              ? 'We follow a structured approach to ensure successful implementation of AI solutions that deliver real business value.'
-              : 'Stosujemy ustrukturyzowane podejście, aby zapewnić udane wdrożenie rozwiązań AI, które dostarczają rzeczywistą wartość biznesową.'}
+            {t('howItWorks.process.description')}
           </motion.p>
           <div style={{
             display: 'grid',
@@ -392,13 +344,13 @@ const HowItWorks = () => {
                   color: 'var(--text-primary)',
                   fontWeight: '700',
                 }}>
-                  {step.title[language]}
+                  {t(step.titleKey)}
                 </h3>
                 <p style={{
                   color: 'var(--text-secondary)',
                   lineHeight: 1.6,
                 }}>
-                  {step.description[language]}
+                  {t(step.descriptionKey)}
                 </p>
               </motion.div>
             ))}
@@ -428,7 +380,7 @@ const HowItWorks = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en' ? 'Key Benefits' : 'Główne Korzyści'}
+            {t('howItWorks.benefits.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -440,9 +392,7 @@ const HowItWorks = () => {
               margin: '0 auto var(--spacing-2xl)',
             }}
           >
-            {language === 'en'
-              ? 'Our AI-powered automation solutions deliver tangible benefits that transform your business operations.'
-              : 'Nasze rozwiązania automatyzacji oparte na AI zapewniają wymierne korzyści, które transformują działalność Twojej firmy.'}
+            {t('howItWorks.benefits.description')}
           </motion.p>
           <div style={{
             display: 'grid',
@@ -486,13 +436,13 @@ const HowItWorks = () => {
                   color: 'var(--text-primary)',
                   fontWeight: '700',
                 }}>
-                  {benefit.title[language]}
+                  {t(benefit.titleKey)}
                 </h3>
                 <p style={{
                   color: 'var(--text-secondary)',
                   lineHeight: 1.6,
                 }}>
-                  {benefit.description[language]}
+                  {t(benefit.descriptionKey)}
                 </p>
               </motion.div>
             ))}
@@ -522,7 +472,7 @@ const HowItWorks = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en' ? 'Frequently Asked Questions' : 'Często Zadawane Pytania'}
+            {t('howItWorks.faq.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -534,9 +484,7 @@ const HowItWorks = () => {
               margin: '0 auto var(--spacing-2xl)',
             }}
           >
-            {language === 'en'
-              ? 'Find answers to common questions about our implementation process.'
-              : 'Znajdź odpowiedzi na często zadawane pytania dotyczące naszego procesu wdrażania.'}
+            {t('howItWorks.faq.description')}
           </motion.p>
           
           <div style={{
@@ -572,13 +520,13 @@ const HowItWorks = () => {
                       marginBottom: 'var(--spacing-sm)',
                       color: 'var(--text-primary)',
                     }}>
-                      {item.question[language]}
+                      {t(item.questionKey)}
                     </h3>
                     <p style={{
                       color: 'var(--text-secondary)',
                       lineHeight: 1.6,
                     }}>
-                      {item.answer[language]}
+                      {t(item.answerKey)}
                     </p>
                   </div>
                 </div>
@@ -615,9 +563,7 @@ const HowItWorks = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en'
-              ? 'Ready to Start Your Digital Transformation?'
-              : 'Gotowy na Cyfrową Transformację?'}
+            {t('howItWorks.cta.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -627,9 +573,7 @@ const HowItWorks = () => {
               opacity: 0.9,
             }}
           >
-            {language === 'en'
-              ? 'Contact us today to discuss how we can help automate your business processes'
-              : 'Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować Twoje procesy biznesowe'}
+            {t('howItWorks.cta.description')}
           </motion.p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
             <motion.div
@@ -652,7 +596,7 @@ const HowItWorks = () => {
                   gap: 'var(--spacing-sm)',
                 }}
               >
-                {language === 'en' ? 'Get Started' : 'Rozpocznij'}
+                {t('howItWorks.cta.getStarted')}
                 <FaPhoneAlt />
               </Link>
             </motion.div>
@@ -676,7 +620,7 @@ const HowItWorks = () => {
                   border: '2px solid var(--primary-color)',
                 }}
               >
-                {language === 'en' ? 'Learn More' : 'Dowiedz się więcej'}
+                {t('howItWorks.cta.learnMore')}
                 <FaArrowRight />
               </Link>
             </motion.div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaSearch,
   FaTag,
@@ -11,7 +12,8 @@ import {
 } from 'react-icons/fa';
 
 const Blog = () => {
-  const [language] = useState('en');
+  const { t, i18n } = useTranslation();
+  const language = i18n.language;
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -116,8 +118,10 @@ const Blog = () => {
 
   // Filter posts based on search and category
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title[language].toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt[language].toLowerCase().includes(searchTerm.toLowerCase());
+    const postTitle = t(`blog.posts.${post.id}.title`).toLowerCase();
+    const postExcerpt = t(`blog.posts.${post.id}.excerpt`).toLowerCase();
+    const matchesSearch = postTitle.includes(searchTerm.toLowerCase()) ||
+                         postExcerpt.includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -148,7 +152,7 @@ const Blog = () => {
               marginBottom: 'var(--spacing-lg)',
             }}
           >
-            {language === 'en' ? 'Blog & Insights' : 'Blog i Analizy'}
+            {t('blog.hero.title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -158,9 +162,7 @@ const Blog = () => {
               margin: '0 auto',
             }}
           >
-            {language === 'en'
-              ? 'Stay updated with the latest insights, trends, and news in AI and automation'
-              : 'Bądź na bieżąco z najnowszymi spostrzeżeniami, trendami i wiadomościami w dziedzinie AI i automatyzacji'}
+            {t('blog.hero.description')}
           </motion.p>
         </div>
       </motion.section>
@@ -203,7 +205,7 @@ const Blog = () => {
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder={language === 'en' ? 'Search articles...' : 'Szukaj artykułów...'}
+                placeholder={t('blog.search.placeholder')}
                 style={{
                   width: '100%',
                   padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-md) var(--spacing-2xl)',
@@ -242,7 +244,7 @@ const Blog = () => {
                     transition: 'var(--transition-fast)',
                   }}
                 >
-                  {category.label[language]}
+                  {t(`blog.categories.${category.id}`)}
                 </button>
               ))}
             </motion.div>
@@ -297,7 +299,7 @@ const Blog = () => {
                   }}>
                     <FaTag style={{ color: 'var(--primary-color)' }} />
                     <span style={{ color: 'var(--text-secondary)' }}>
-                      {categories.find(c => c.id === post.category)?.label[language]}
+                      {t(`blog.categories.${post.category}`)}
                     </span>
                   </div>
 
@@ -306,7 +308,7 @@ const Blog = () => {
                     fontSize: 'var(--font-size-xl)',
                     marginBottom: 'var(--spacing-md)',
                   }}>
-                    {post.title[language]}
+                    {t(`blog.posts.${post.id}.title`)}
                   </h2>
 
                   {/* Excerpt */}
@@ -314,7 +316,7 @@ const Blog = () => {
                     color: 'var(--text-secondary)',
                     marginBottom: 'var(--spacing-lg)',
                   }}>
-                    {post.excerpt[language]}
+                    {t(`blog.posts.${post.id}.excerpt`)}
                   </p>
 
                   {/* Meta */}
@@ -334,11 +336,11 @@ const Blog = () => {
                     }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)' }}>
                         <FaUser />
-                        <span>{post.author[language]}</span>
+                        <span>{t(`blog.posts.${post.id}.author`)}</span>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)' }}>
                         <FaClock />
-                        <span>{post.readTime[language]}</span>
+                        <span>{t(`blog.posts.${post.id}.readTime`)}</span>
                       </div>
                     </div>
                     <Link
@@ -350,7 +352,7 @@ const Blog = () => {
                         gap: 'var(--spacing-xs)',
                       }}
                     >
-                      {language === 'en' ? 'Read More' : 'Czytaj Więcej'}
+                      {t('blog.readMore')}
                       <FaArrowRight />
                     </Link>
                   </div>
@@ -380,9 +382,7 @@ const Blog = () => {
               marginBottom: 'var(--spacing-lg)',
             }}
           >
-            {language === 'en'
-              ? 'Stay Updated'
-              : 'Bądź na Bieżąco'}
+            {t('blog.newsletter.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -392,9 +392,7 @@ const Blog = () => {
               margin: '0 auto var(--spacing-xl)',
             }}
           >
-            {language === 'en'
-              ? 'Subscribe to our newsletter for the latest insights and trends'
-              : 'Zapisz się do naszego newslettera, aby otrzymywać najnowsze analizy i trendy'}
+            {t('blog.newsletter.description')}
           </motion.p>
           <motion.form
             variants={itemVariants}
@@ -407,7 +405,7 @@ const Blog = () => {
           >
             <input
               type="email"
-              placeholder={language === 'en' ? 'Enter your email' : 'Wpisz swój email'}
+              placeholder={t('blog.newsletter.emailPlaceholder')}
               style={{
                 flex: 1,
                 padding: 'var(--spacing-md)',
@@ -427,7 +425,7 @@ const Blog = () => {
                 cursor: 'pointer',
               }}
             >
-              {language === 'en' ? 'Subscribe' : 'Subskrybuj'}
+              {t('blog.newsletter.subscribeButton')}
             </button>
           </motion.form>
         </div>

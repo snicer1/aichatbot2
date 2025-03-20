@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaRobot,
   FaDatabase,
@@ -29,7 +30,7 @@ import {
 } from 'react-icons/fa';
 
 const Services = () => {
-  const [language] = useState('en');
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCase, setSelectedCase] = useState(null);
   const [activeTab, setActiveTab] = useState('services'); // 'services' or 'case-studies'
@@ -420,7 +421,7 @@ const Services = () => {
               color: 'var(--text-primary)',
             }}
           >
-            {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
+            {t('services.hero.title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -431,9 +432,7 @@ const Services = () => {
               lineHeight: 1.6,
             }}
           >
-            {language === 'en'
-              ? 'Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations and explore real-world success stories.'
-              : 'Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych i poznaj historie sukcesu z prawdziwego świata.'}
+            {t('services.hero.description')}
           </motion.p>
           <motion.div
             variants={itemVariants}
@@ -466,7 +465,7 @@ const Services = () => {
                   boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                 }}
               >
-                {language === 'en' ? "Get Started" : 'Rozpocznij'}
+                {t('services.hero.getStarted')}
                 <FaArrowRight />
               </Link>
             </motion.div>
@@ -490,7 +489,7 @@ const Services = () => {
                   border: '2px solid var(--primary-color)',
                 }}
               >
-                {language === 'en' ? "How It Works" : 'Jak To Działa'}
+                {t('services.hero.howItWorks')}
                 <FaArrowRight />
               </Link>
             </motion.div>
@@ -538,7 +537,7 @@ const Services = () => {
                 fontSize: 'var(--font-size-base)',
               }}
             >
-              {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
+              {t('services.tabs.solutions')}
             </motion.button>
             <motion.button
               variants={itemVariants}
@@ -561,7 +560,7 @@ const Services = () => {
                 fontSize: 'var(--font-size-base)',
               }}
             >
-              {language === 'en' ? 'Case Studies' : 'Case Studies'}
+              {t('services.tabs.caseStudies')}
             </motion.button>
           </div>
         </div>
@@ -592,7 +591,7 @@ const Services = () => {
                   fontWeight: '800',
                 }}
               >
-                {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
+                {t('services.content.solutions.title')}
               </motion.h2>
               <motion.p
                 variants={itemVariants}
@@ -604,9 +603,7 @@ const Services = () => {
                   margin: '0 auto var(--spacing-2xl)',
                 }}
               >
-                {language === 'en'
-                  ? 'Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations'
-                  : 'Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych'}
+                {t('services.content.solutions.description')}
               </motion.p>
               <div style={{
                 display: 'grid',
@@ -658,7 +655,7 @@ const Services = () => {
                         color: 'var(--text-primary)',
                         fontWeight: '700',
                       }}>
-                        {category.title[language]}
+                        {t(`services.categories.${category.id}.title`)}
                       </h3>
                     </div>
 
@@ -689,14 +686,14 @@ const Services = () => {
                             color: 'var(--text-primary)',
                             fontWeight: '600',
                           }}>
-                            {service.title[language]}
+                            {t(`services.categories.${category.id}.services.${index}.title`)}
                           </h4>
                           <p style={{
                             fontSize: 'var(--font-size-base)',
                             color: 'var(--text-secondary)',
                             lineHeight: 1.6,
                           }}>
-                            {service.description[language]}
+                            {t(`services.categories.${category.id}.services.${index}.description`)}
                           </p>
                         </div>
                       ))}
@@ -720,7 +717,7 @@ const Services = () => {
                   fontWeight: '800',
                 }}
               >
-                {language === 'en' ? 'Case Studies' : 'Case Studies'}
+                {t('services.content.caseStudies.title')}
               </motion.h2>
               <motion.p
                 variants={itemVariants}
@@ -732,9 +729,7 @@ const Services = () => {
                   margin: '0 auto var(--spacing-2xl)',
                 }}
               >
-                {language === 'en'
-                  ? 'Discover how our AI solutions have transformed businesses across industries'
-                  : 'Zobacz, jak nasze rozwiązania AI transformują firmy w różnych branżach'}
+                {t('services.content.caseStudies.description')}
               </motion.p>
               <div style={{
                 display: 'grid',
@@ -765,7 +760,7 @@ const Services = () => {
                       gap: 'var(--spacing-md)',
                     }}>
                       <study.icon style={{ fontSize: 'var(--font-size-2xl)' }} />
-                      <h3 style={{ margin: 0, fontWeight: '700' }}>{study.title[language]}</h3>
+                      <h3 style={{ margin: 0, fontWeight: '700' }}>{t(`services.caseStudies.${study.id}.title`)}</h3>
                     </div>
                     
                     <div style={{ padding: 'var(--spacing-lg)' }}>
@@ -775,7 +770,7 @@ const Services = () => {
                         marginBottom: 'var(--spacing-md)',
                         fontWeight: '600',
                       }}>
-                        {study.company[language]}
+                        {t(`services.caseStudies.${study.id}.company`)}
                       </p>
                       
                       <h4 style={{
@@ -784,14 +779,14 @@ const Services = () => {
                         color: 'var(--text-primary)',
                         fontWeight: '700',
                       }}>
-                        {language === 'en' ? 'Challenge:' : 'Wyzwanie:'}
+                        {t('services.content.caseStudies.challengeLabel')}
                       </h4>
                       <p style={{ 
                         marginBottom: 'var(--spacing-md)',
                         color: 'var(--text-secondary)',
                         lineHeight: 1.6,
                       }}>
-                        {study.challenge[language]}
+                        {t(`services.caseStudies.${study.id}.challenge`)}
                       </p>
 
                       <h4 style={{
@@ -800,14 +795,14 @@ const Services = () => {
                         color: 'var(--text-primary)',
                         fontWeight: '700',
                       }}>
-                        {language === 'en' ? 'Solution:' : 'Rozwiązanie:'}
+                        {t('services.content.caseStudies.solutionLabel')}
                       </h4>
                       <p style={{ 
                         marginBottom: 'var(--spacing-md)',
                         color: 'var(--text-secondary)',
                         lineHeight: 1.6,
                       }}>
-                        {study.solution[language]}
+                        {t(`services.caseStudies.${study.id}.solution`)}
                       </p>
 
                       {/* Results */}
@@ -826,7 +821,7 @@ const Services = () => {
                           color: 'var(--text-primary)',
                           fontWeight: '700',
                         }}>
-                          {language === 'en' ? 'Results:' : 'Rezultaty:'}
+                          {t('services.content.caseStudies.resultsLabel')}
                         </h4>
                         <div style={{
                           display: 'grid',
@@ -851,7 +846,7 @@ const Services = () => {
                                   fontSize: 'var(--font-size-lg)',
                                 }}
                               />
-                              <span style={{ fontWeight: '600' }}>{result.text[language]}</span>
+                              <span style={{ fontWeight: '600' }}>{t(`services.caseStudies.${study.id}.results.${index}`)}</span>
                             </div>
                           ))}
                         </div>
@@ -892,9 +887,7 @@ const Services = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en'
-              ? 'Ready to Transform Your Business?'
-              : 'Gotowy na Transformację Swojej Firmy?'}
+            {t('services.cta.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -904,9 +897,7 @@ const Services = () => {
               opacity: 0.9,
             }}
           >
-            {language === 'en'
-              ? 'Contact us today to discuss how we can help automate and optimize your business processes'
-              : 'Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować i zoptymalizować Twoje procesy biznesowe'}
+            {t('services.cta.description')}
           </motion.p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
             <motion.div
@@ -929,7 +920,7 @@ const Services = () => {
                   gap: 'var(--spacing-sm)',
                 }}
               >
-                {language === 'en' ? 'Contact Us' : 'Skontaktuj się z Nami'}
+                {t('services.cta.contactUs')}
                 <FaPhoneAlt />
               </Link>
             </motion.div>
@@ -953,7 +944,7 @@ const Services = () => {
                   border: '2px solid var(--primary-color)',
                 }}
               >
-                {language === 'en' ? 'Learn More' : 'Dowiedz się więcej'}
+                {t('services.cta.learnMore')}
                 <FaArrowRight />
               </Link>
             </motion.div>

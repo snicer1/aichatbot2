@@ -142,5 +142,374 @@
   "footer": {
     "contactUs": "KONTAKT",
     "allRightsReserved": "Wszelkie prawa zastrzeżone."
+  },
+  "services": {
+    "hero": {
+      "title": "Nasze Rozwiązania",
+      "description": "Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych i poznaj historie sukcesu z prawdziwego świata.",
+      "getStarted": "Rozpocznij",
+      "howItWorks": "Jak To Działa"
+    },
+    "tabs": {
+      "solutions": "Nasze Rozwiązania",
+      "caseStudies": "Case Studies"
+    },
+    "content": {
+      "solutions": {
+        "title": "Nasze Rozwiązania",
+        "description": "Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych"
+      },
+      "caseStudies": {
+        "title": "Case Studies",
+        "description": "Zobacz, jak nasze rozwiązania AI transformują firmy w różnych branżach",
+        "challengeLabel": "Wyzwanie:",
+        "solutionLabel": "Rozwiązanie:",
+        "resultsLabel": "Rezultaty:"
+      }
+    },
+    "categories": {
+      "automation": {
+        "title": "Automatyzacja Procesów",
+        "services": [
+          {
+            "title": "Zarządzanie Dokumentacją",
+            "description": "Inteligentna organizacja dokumentów i dokumentacja procesów z chatbotami AI"
+          },
+          {
+            "title": "Automatyzacja Danych",
+            "description": "Usprawnianie procesów przetwarzania danych i automatyzacja powtarzalnych zadań"
+          }
+        ]
+      },
+      "customer-support": {
+        "title": "Obsługa Klienta",
+        "services": [
+          {
+            "title": "Chatboty Wsparcia",
+            "description": "Chatboty AI do całodobowej obsługi klienta i obsługi FAQ"
+          }
+        ]
+      },
+      "project-management": {
+        "title": "Zarządzanie Projektami",
+        "services": [
+          {
+            "title": "Śledzenie Postępów",
+            "description": "Automatyczne raporty postępu i zarządzanie terminami"
+          }
+        ]
+      },
+      "hr": {
+        "title": "Rozwiązania HR",
+        "services": [
+          {
+            "title": "Automatyzacja Rekrutacji",
+            "description": "Automatyczna analiza CV i dopasowywanie kandydatów"
+          }
+        ]
+      },
+      "marketing": {
+        "title": "Automatyzacja Marketingu",
+        "services": [
+          {
+            "title": "Zarządzanie Kampaniami",
+            "description": "Automatyczne kampanie email i generowanie treści"
+          }
+        ]
+      },
+      "finance": {
+        "title": "Rozwiązania Finansowe",
+        "services": [
+          {
+            "title": "Analiza Finansowa",
+            "description": "Automatyczne raportowanie finansowe i wykrywanie anomalii"
+          }
+        ]
+      },
+      "resource": {
+        "title": "Zarządzanie Zasobami",
+        "services": [
+          {
+            "title": "Planowanie Zasobów",
+            "description": "Przewidywanie zasobów oparte na AI i automatyczne zamawianie"
+          }
+        ]
+      },
+      "sales": {
+        "title": "Sprzedaż i CRM",
+        "services": [
+          {
+            "title": "Automatyzacja Sprzedaży",
+            "description": "Śledzenie leadów i przewidywanie trendów sprzedaży"
+          }
+        ]
+      },
+      "technical": {
+        "title": "Wsparcie Techniczne",
+        "services": [
+          {
+            "title": "Automatyzacja Techniczna",
+            "description": "Automatyczne śledzenie błędów i chatboty wsparcia technicznego"
+          }
+        ]
+      },
+      "integration": {
+        "title": "Integracja Systemów",
+        "services": [
+          {
+            "title": "Integracja Przepływów Pracy",
+            "description": "Bezproblemowe łączenie aplikacji biznesowych"
+          }
+        ]
+      },
+      "notifications": {
+        "title": "Powiadomienia i Alerty",
+        "services": [
+          {
+            "title": "Inteligentne Alerty",
+            "description": "Automatyczne przypomnienia o zadaniach i alerty o ryzyku"
+          }
+        ]
+      }
+    },
+    "caseStudies": {
+      "manufacturing": {
+        "title": "Doskonałość w Produkcji",
+        "company": "Global Manufacturing Corp",
+        "challenge": "Nieefektywne procesy produkcyjne prowadzące do opóźnień i zwiększonych kosztów",
+        "solution": "Wdrożono automatyzację procesów opartą na AI i systemy konserwacji predykcyjnej",
+        "results": [
+          "35% wzrost produktywności",
+          "60% redukcja przestojów",
+          "25% oszczędności kosztów"
+        ]
+      },
+      "healthcare": {
+        "title": "Innowacje w Opiece Zdrowotnej",
+        "company": "MedTech Solutions",
+        "challenge": "Ręczne zarządzanie danymi pacjentów powodujące opóźnienia w świadczeniu opieki",
+        "solution": "Wdrożono chatboty AI do planowania wizyt pacjentów i automatycznej dokumentacji",
+        "results": [
+          "50% szybsza obsługa pacjentów",
+          "40% poprawa efektywności",
+          "30% oszczędności operacyjne"
+        ]
+      },
+      "retail": {
+        "title": "Transformacja Handlu Detalicznego",
+        "company": "Smart Retail Co",
+        "challenge": "Nieefektywne zarządzanie zapasami i obsługa klienta",
+        "solution": "Wdrożono przewidywanie zapasów oparte na AI i automatyzację obsługi klienta",
+        "results": [
+          "45% redukcja braków w magazynie",
+          "90% szybszy czas odpowiedzi",
+          "20% wzrost sprzedaży"
+        ]
+      },
+      "education": {
+        "title": "Ewolucja Edukacji",
+        "company": "EduTech Institute",
+        "challenge": "Złożone procesy administracyjne i potrzeby wsparcia studentów",
+        "solution": "Wdrożono kompleksowy system automatyzacji dla administracji i obsługi studentów",
+        "results": [
+          "70% szybsze przetwarzanie",
+          "Całodobowe wsparcie studentów",
+          "35% redukcja kosztów"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Gotowy na Transformację Swojej Firmy?",
+      "description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować i zoptymalizować Twoje procesy biznesowe",
+      "contactUs": "Skontaktuj się z Nami",
+      "learnMore": "Dowiedz się więcej"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog i Analizy",
+      "description": "Bądź na bieżąco z najnowszymi spostrzeżeniami, trendami i wiadomościami w dziedzinie AI i automatyzacji"
+    },
+    "search": {
+      "placeholder": "Szukaj artykułów..."
+    },
+    "categories": {
+      "all": "Wszystkie",
+      "ai": "Technologia AI",
+      "automation": "Automatyzacja",
+      "business": "Biznes",
+      "trends": "Trendy Branżowe"
+    },
+    "readMore": "Czytaj Więcej",
+    "posts": {
+      "1": {
+        "title": "Przyszłość AI w Automatyzacji Procesów Biznesowych",
+        "excerpt": "Odkryj, jak sztuczna inteligencja rewolucjonizuje automatyzację procesów biznesowych i co to oznacza dla przyszłości pracy.",
+        "author": "John Smith",
+        "readTime": "5 min czytania"
+      },
+      "2": {
+        "title": "Wdrażanie Chatbotów: Najlepsze Praktyki i Częste Pułapki",
+        "excerpt": "Poznaj najważniejsze praktyki skutecznego wdrażania chatbotów i jak unikać typowych błędów.",
+        "author": "Sarah Johnson",
+        "readTime": "8 min czytania"
+      },
+      "3": {
+        "title": "Trendy w Automatyzacji Procesów Biznesowych 2024",
+        "excerpt": "Odkryj najnowsze trendy kształtujące przyszłość automatyzacji procesów biznesowych i transformacji cyfrowej.",
+        "author": "Michael Chen",
+        "readTime": "6 min czytania"
+      },
+      "4": {
+        "title": "ROI Wdrożenia AI: Analiza Przypadków",
+        "excerpt": "Szczegółowa analiza zwrotu z inwestycji we wdrożenie AI w różnych branżach.",
+        "author": "Emma Davis",
+        "readTime": "10 min czytania"
+      }
+    },
+    "newsletter": {
+      "title": "Bądź na Bieżąco",
+      "description": "Zapisz się do naszego newslettera, aby otrzymywać najnowsze analizy i trendy",
+      "emailPlaceholder": "Wpisz swój email",
+      "subscribeButton": "Subskrybuj"
+    }
+  },
+  "caseStudies": {
+    "hero": {
+      "title": "Case Studies",
+      "description": "Zobacz, jak nasze rozwiązania AI transformują firmy w różnych branżach"
+    },
+    "labels": {
+      "challenge": "Wyzwanie:",
+      "solution": "Rozwiązanie:",
+      "results": "Rezultaty:"
+    },
+    "studies": {
+      "manufacturing": {
+        "title": "Doskonałość w Produkcji",
+        "company": "Global Manufacturing Corp",
+        "challenge": "Nieefektywne procesy produkcyjne prowadzące do opóźnień i zwiększonych kosztów",
+        "solution": "Wdrożono automatyzację procesów opartą na AI i systemy konserwacji predykcyjnej",
+        "results": [
+          "35% wzrost produktywności",
+          "60% redukcja przestojów",
+          "25% oszczędności kosztów"
+        ]
+      },
+      "healthcare": {
+        "title": "Innowacje w Opiece Zdrowotnej",
+        "company": "MedTech Solutions",
+        "challenge": "Ręczne zarządzanie danymi pacjentów powodujące opóźnienia w świadczeniu opieki",
+        "solution": "Wdrożono chatboty AI do planowania wizyt pacjentów i automatycznej dokumentacji",
+        "results": [
+          "50% szybsza obsługa pacjentów",
+          "40% poprawa efektywności",
+          "30% oszczędności operacyjne"
+        ]
+      },
+      "retail": {
+        "title": "Transformacja Handlu Detalicznego",
+        "company": "Smart Retail Co",
+        "challenge": "Nieefektywne zarządzanie zapasami i obsługa klienta",
+        "solution": "Wdrożono przewidywanie zapasów oparte na AI i automatyzację obsługi klienta",
+        "results": [
+          "45% redukcja braków w magazynie",
+          "90% szybszy czas odpowiedzi",
+          "20% wzrost sprzedaży"
+        ]
+      },
+      "education": {
+        "title": "Ewolucja Edukacji",
+        "company": "EduTech Institute",
+        "challenge": "Złożone procesy administracyjne i potrzeby wsparcia studentów",
+        "solution": "Wdrożono kompleksowy system automatyzacji dla administracji i obsługi studentów",
+        "results": [
+          "70% szybsze przetwarzanie",
+          "Całodobowe wsparcie studentów",
+          "35% redukcja kosztów"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Gotowy na Transformację Swojej Firmy?",
+      "description": "Dołącz do tych historii sukcesu i zrewolucjonizuj swoje operacje z naszymi rozwiązaniami AI",
+      "contactButton": "Skontaktuj się z Nami"
+    }
+  },
+  "howItWorks": {
+    "hero": {
+      "title": "Jak To Działa",
+      "description": "Poznaj nasz sprawdzony proces wdrażania rozwiązań automatyzacji opartych na AI w Twojej firmie. Od początkowej konsultacji po ciągłą optymalizację, przeprowadzimy Cię przez każdy krok.",
+      "getStarted": "Rozpocznij",
+      "ourServices": "Nasze Usługi"
+    },
+    "process": {
+      "title": "Nasz Proces",
+      "description": "Stosujemy ustrukturyzowane podejście, aby zapewnić udane wdrożenie rozwiązań AI, które dostarczają rzeczywistą wartość biznesową."
+    },
+    "processSteps": {
+      "initialConsultation": {
+        "title": "Wstępna Konsultacja",
+        "description": "Zaczynamy od zrozumienia potrzeb, wyzwań i celów Twojej firmy poprzez szczegółową konsultację."
+      },
+      "analysisPlanning": {
+        "title": "Analiza i Planowanie",
+        "description": "Nasi eksperci analizują Twoje procesy i opracowują dostosowaną strategię automatyzacji."
+      },
+      "solutionDesign": {
+        "title": "Projektowanie Rozwiązania",
+        "description": "Projektujemy rozwiązania oparte na AI dostosowane do Twoich konkretnych wymagań i przepływu pracy."
+      },
+      "implementation": {
+        "title": "Wdrożenie",
+        "description": "Nasz zespół wdraża rozwiązanie, zapewniając minimalne zakłócenia w działalności."
+      },
+      "trainingSupport": {
+        "title": "Szkolenie i Wsparcie",
+        "description": "Zapewniamy kompleksowe szkolenie i ciągłe wsparcie dla sprawnej adaptacji."
+      },
+      "monitoringOptimization": {
+        "title": "Monitorowanie i Optymalizacja",
+        "description": "Ciągłe monitorowanie i optymalizacja zapewniają maksymalną wydajność i zwrot z inwestycji."
+      }
+    },
+    "benefits": {
+      "title": "Główne Korzyści",
+      "description": "Nasze rozwiązania automatyzacji oparte na AI zapewniają wymierne korzyści, które transformują działalność Twojej firmy.",
+      "increasedEfficiency": {
+        "title": "Zwiększona Wydajność",
+        "description": "Automatyzacja powtarzalnych zadań i usprawnienie przepływów pracy dla lepszej produktywności."
+      },
+      "costReduction": {
+        "title": "Redukcja Kosztów",
+        "description": "Minimalizacja kosztów operacyjnych poprzez inteligentną automatyzację i optymalizację."
+      },
+      "improvedAccuracy": {
+        "title": "Zwiększona Dokładność",
+        "description": "Eliminacja błędów ludzkich i zapewnienie spójnej jakości we wszystkich procesach."
+      }
+    },
+    "faq": {
+      "title": "Często Zadawane Pytania",
+      "description": "Znajdź odpowiedzi na często zadawane pytania dotyczące naszego procesu wdrażania.",
+      "implementationTime": {
+        "question": "Jak długo zwykle trwa wdrożenie?",
+        "answer": "Czas wdrożenia zależy od złożoności projektu, ale zazwyczaj wynosi od 2 do 8 tygodni. Dostarczamy szczegółowe harmonogramy podczas fazy planowania."
+      },
+      "ongoingSupport": {
+        "question": "Czy oferujecie ciągłe wsparcie po wdrożeniu?",
+        "answer": "Tak, oferujemy kompleksowe pakiety wsparcia, aby zapewnić optymalne działanie Twojego rozwiązania. Nasz zespół jest dostępny do rozwiązywania problemów, aktualizacji i optymalizacji."
+      },
+      "dataSecurity": {
+        "question": "Jak zapewniacie bezpieczeństwo danych podczas wdrażania?",
+        "answer": "Stosujemy najlepsze praktyki branżowe w zakresie bezpieczeństwa danych, w tym szyfrowanie, bezpieczne kontrole dostępu i zgodność z odpowiednimi przepisami, takimi jak RODO. Możemy podpisać umowy o zachowaniu poufności i dostarczyć szczegółową dokumentację bezpieczeństwa."
+      }
+    },
+    "cta": {
+      "title": "Gotowy na Cyfrową Transformację?",
+      "description": "Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować Twoje procesy biznesowe",
+      "getStarted": "Rozpocznij",
+      "learnMore": "Dowiedz się więcej"
+    }
   }
 }
