@@ -10,7 +10,10 @@ import {
   FaChartLine,
   FaUsersCog,
   FaCode,
-  FaCheckCircle
+  FaCheckCircle,
+  FaPhoneAlt,
+  FaArrowRight,
+  FaQuestionCircle
 } from 'react-icons/fa';
 
 const HowItWorks = () => {
@@ -118,31 +121,110 @@ const HowItWorks = () => {
     }
   ];
 
+  // FAQ items
+  const faqItems = [
+    {
+      question: {
+        en: 'How long does implementation typically take?',
+        pl: 'Jak długo zwykle trwa wdrożenie?'
+      },
+      answer: {
+        en: 'Implementation timelines vary based on project complexity, but typically range from 2-8 weeks. We provide detailed timelines during the planning phase.',
+        pl: 'Czas wdrożenia zależy od złożoności projektu, ale zazwyczaj wynosi od 2 do 8 tygodni. Dostarczamy szczegółowe harmonogramy podczas fazy planowania.'
+      }
+    },
+    {
+      question: {
+        en: 'Do you offer ongoing support after implementation?',
+        pl: 'Czy oferujecie ciągłe wsparcie po wdrożeniu?'
+      },
+      answer: {
+        en: 'Yes, we provide comprehensive support packages to ensure your solution continues to perform optimally. Our team is available for troubleshooting, updates, and optimization.',
+        pl: 'Tak, oferujemy kompleksowe pakiety wsparcia, aby zapewnić optymalne działanie Twojego rozwiązania. Nasz zespół jest dostępny do rozwiązywania problemów, aktualizacji i optymalizacji.'
+      }
+    },
+    {
+      question: {
+        en: 'How do you ensure data security during implementation?',
+        pl: 'Jak zapewniacie bezpieczeństwo danych podczas wdrażania?'
+      },
+      answer: {
+        en: 'We follow industry best practices for data security, including encryption, secure access controls, and compliance with relevant regulations like GDPR. We can sign NDAs and provide detailed security documentation.',
+        pl: 'Stosujemy najlepsze praktyki branżowe w zakresie bezpieczeństwa danych, w tym szyfrowanie, bezpieczne kontrole dostępu i zgodność z odpowiednimi przepisami, takimi jak RODO. Możemy podpisać umowy o zachowaniu poufności i dostarczyć szczegółową dokumentację bezpieczeństwa.'
+      }
+    }
+  ];
+
   // Intersection observer hooks
-  const [headerRef, headerInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [processRef, processInView] = useInView({ threshold: 0.1, triggerOnce: true });
   const [benefitsRef, benefitsInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [faqRef, faqInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ctaRef, ctaInView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <div style={{ paddingTop: 'var(--spacing-2xl)' }}>
-      {/* Header Section */}
+    <div>
+      {/* Hero Section */}
       <motion.section
-        ref={headerRef}
+        ref={heroRef}
         initial="hidden"
-        animate={headerInView ? "visible" : "hidden"}
+        animate={heroInView ? "visible" : "hidden"}
         variants={containerVariants}
         style={{
-          background: 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))',
-          color: 'var(--text-light)',
+          minHeight: '70vh',
+          display: 'flex',
+          alignItems: 'center',
+          background: 'linear-gradient(135deg, var(--light-green), var(--medium-green))',
+          color: 'var(--text-primary)',
           padding: 'var(--spacing-2xl) 0',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div className="container text-center">
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.2) 100%)',
+          zIndex: 0,
+        }} />
+        
+        {/* Animated shapes for visual interest */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: '5%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
+        <div style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: '5%',
+          width: '200px',
+          height: '200px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h1
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-4xl)',
+              fontSize: 'clamp(3rem, 8vw, 5rem)',
               marginBottom: 'var(--spacing-lg)',
+              maxWidth: '900px',
+              lineHeight: 1.1,
+              fontWeight: '800',
+              color: 'var(--text-primary)',
             }}
           >
             {language === 'en' ? 'How It Works' : 'Jak To Działa'}
@@ -150,15 +232,76 @@ const HowItWorks = () => {
           <motion.p
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-lg)',
-              maxWidth: '800px',
-              margin: '0 auto',
+              fontSize: 'clamp(1.125rem, 2vw, var(--font-size-lg))',
+              marginBottom: 'var(--spacing-xl)',
+              maxWidth: '700px',
+              lineHeight: 1.6,
             }}
           >
             {language === 'en'
-              ? 'Discover our proven process for implementing AI-powered automation solutions in your business'
-              : 'Poznaj nasz sprawdzony proces wdrażania rozwiązań automatyzacji opartych na AI w Twojej firmie'}
+              ? 'Discover our proven process for implementing AI-powered automation solutions in your business. From initial consultation to ongoing optimization, we guide you through every step.'
+              : 'Poznaj nasz sprawdzony proces wdrażania rozwiązań automatyzacji opartych na AI w Twojej firmie. Od początkowej konsultacji po ciągłą optymalizację, przeprowadzimy Cię przez każdy krok.'}
           </motion.p>
+          <motion.div
+            variants={itemVariants}
+            style={{
+              display: 'flex',
+              gap: 'var(--spacing-md)',
+              flexWrap: 'wrap',
+              position: 'relative',
+              zIndex: 1,
+              marginTop: 'var(--spacing-xl)',
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                style={{
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+                  color: '#fff',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'var(--transition-normal)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
+                }}
+              >
+                {language === 'en' ? "Get Started" : 'Rozpocznij'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/services"
+                style={{
+                  background: 'transparent',
+                  color: 'var(--primary-color)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'var(--transition-normal)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  border: '2px solid var(--primary-color)',
+                }}
+              >
+                {language === 'en' ? "Our Services" : 'Nasze Usługi'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -170,7 +313,7 @@ const HowItWorks = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--background-color)',
+          background: 'var(--light-green)',
         }}
       >
         <div className="container">
@@ -178,15 +321,31 @@ const HowItWorks = () => {
             variants={itemVariants}
             className="text-center"
             style={{
-              fontSize: 'var(--font-size-3xl)',
-              marginBottom: 'var(--spacing-xl)',
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              marginBottom: 'var(--spacing-md)',
+              color: 'var(--text-primary)',
+              fontWeight: '800',
             }}
           >
             {language === 'en' ? 'Our Process' : 'Nasz Proces'}
           </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-center"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              marginBottom: 'var(--spacing-2xl)',
+              maxWidth: '800px',
+              margin: '0 auto var(--spacing-2xl)',
+            }}
+          >
+            {language === 'en'
+              ? 'We follow a structured approach to ensure successful implementation of AI solutions that deliver real business value.'
+              : 'Stosujemy ustrukturyzowane podejście, aby zapewnić udane wdrożenie rozwiązań AI, które dostarczają rzeczywistą wartość biznesową.'}
+          </motion.p>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: ['1fr', '1fr 1fr', 'repeat(3, 1fr)'],
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: 'var(--spacing-xl)',
           }}>
             {processSteps.map((step, index) => (
@@ -194,10 +353,11 @@ const HowItWorks = () => {
                 key={index}
                 variants={itemVariants}
                 style={{
-                  background: 'white',
                   padding: 'var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-lg)',
-                  boxShadow: 'var(--shadow-md)',
+                  background: 'var(--medium-green)',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.1)',
+                  transition: 'var(--transition-normal)',
                   position: 'relative',
                 }}
               >
@@ -207,19 +367,21 @@ const HowItWorks = () => {
                   right: 'var(--spacing-md)',
                   background: 'var(--primary-color)',
                   color: 'var(--text-light)',
-                  width: '24px',
-                  height: '24px',
+                  width: '32px',
+                  height: '32px',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 'var(--font-size-sm)',
+                  fontSize: 'var(--font-size-base)',
+                  fontWeight: 'bold',
+                  boxShadow: '0 2px 5px rgba(16, 185, 129, 0.3)',
                 }}>
                   {index + 1}
                 </div>
                 <step.icon
                   style={{
-                    fontSize: 'var(--font-size-2xl)',
+                    fontSize: 'var(--font-size-3xl)',
                     color: 'var(--primary-color)',
                     marginBottom: 'var(--spacing-md)',
                   }}
@@ -227,11 +389,14 @@ const HowItWorks = () => {
                 <h3 style={{
                   fontSize: 'var(--font-size-xl)',
                   marginBottom: 'var(--spacing-md)',
+                  color: 'var(--text-primary)',
+                  fontWeight: '700',
                 }}>
                   {step.title[language]}
                 </h3>
                 <p style={{
                   color: 'var(--text-secondary)',
+                  lineHeight: 1.6,
                 }}>
                   {step.description[language]}
                 </p>
@@ -249,8 +414,7 @@ const HowItWorks = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--dark-background)',
-          color: 'var(--text-light)',
+          background: 'linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 1) 100%)',
         }}
       >
         <div className="container">
@@ -258,39 +422,76 @@ const HowItWorks = () => {
             variants={itemVariants}
             className="text-center"
             style={{
-              fontSize: 'var(--font-size-3xl)',
-              marginBottom: 'var(--spacing-xl)',
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              marginBottom: 'var(--spacing-md)',
+              color: 'var(--text-primary)',
+              fontWeight: '800',
             }}
           >
             {language === 'en' ? 'Key Benefits' : 'Główne Korzyści'}
           </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-center"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              marginBottom: 'var(--spacing-2xl)',
+              maxWidth: '800px',
+              margin: '0 auto var(--spacing-2xl)',
+            }}
+          >
+            {language === 'en'
+              ? 'Our AI-powered automation solutions deliver tangible benefits that transform your business operations.'
+              : 'Nasze rozwiązania automatyzacji oparte na AI zapewniają wymierne korzyści, które transformują działalność Twojej firmy.'}
+          </motion.p>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: ['1fr', '1fr', 'repeat(3, 1fr)'],
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: 'var(--spacing-xl)',
           }}>
             {benefits.map((benefit, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
+                whileHover={{ y: -5 }}
                 style={{
                   textAlign: 'center',
+                  padding: 'var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-lg)',
+                  background: 'white',
+                  boxShadow: 'var(--shadow-md)',
+                  transition: 'var(--transition-normal)',
                 }}
               >
-                <benefit.icon
-                  style={{
-                    fontSize: 'var(--font-size-3xl)',
-                    color: 'var(--accent-color)',
-                    marginBottom: 'var(--spacing-md)',
-                  }}
-                />
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  background: 'var(--light-green)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto var(--spacing-md)',
+                }}>
+                  <benefit.icon
+                    style={{
+                      fontSize: 'var(--font-size-3xl)',
+                      color: 'var(--primary-color)',
+                    }}
+                  />
+                </div>
                 <h3 style={{
                   fontSize: 'var(--font-size-xl)',
                   marginBottom: 'var(--spacing-md)',
+                  color: 'var(--text-primary)',
+                  fontWeight: '700',
                 }}>
                   {benefit.title[language]}
                 </h3>
-                <p>
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  lineHeight: 1.6,
+                }}>
                   {benefit.description[language]}
                 </p>
               </motion.div>
@@ -299,22 +500,119 @@ const HowItWorks = () => {
         </div>
       </motion.section>
 
-      {/* CTA Section */}
+      {/* FAQ Section */}
       <motion.section
+        ref={faqRef}
         initial="hidden"
-        animate="visible"
+        animate={faqInView ? "visible" : "hidden"}
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--background-color)',
+          background: 'var(--light-green)',
         }}
       >
-        <div className="container text-center">
+        <div className="container">
+          <motion.h2
+            variants={itemVariants}
+            className="text-center"
+            style={{
+              fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+              marginBottom: 'var(--spacing-md)',
+              color: 'var(--text-primary)',
+              fontWeight: '800',
+            }}
+          >
+            {language === 'en' ? 'Frequently Asked Questions' : 'Często Zadawane Pytania'}
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="text-center"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              marginBottom: 'var(--spacing-2xl)',
+              maxWidth: '800px',
+              margin: '0 auto var(--spacing-2xl)',
+            }}
+          >
+            {language === 'en'
+              ? 'Find answers to common questions about our implementation process.'
+              : 'Znajdź odpowiedzi na często zadawane pytania dotyczące naszego procesu wdrażania.'}
+          </motion.p>
+          
+          <div style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+          }}>
+            {faqItems.map((item, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                style={{
+                  marginBottom: 'var(--spacing-lg)',
+                  background: 'var(--medium-green)',
+                  borderRadius: 'var(--border-radius-lg)',
+                  padding: 'var(--spacing-xl)',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.1)',
+                }}
+              >
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: 'var(--spacing-md)',
+                }}>
+                  <FaQuestionCircle style={{
+                    color: 'var(--primary-color)',
+                    fontSize: 'var(--font-size-xl)',
+                    marginTop: '4px',
+                  }} />
+                  <div>
+                    <h3 style={{
+                      fontSize: 'var(--font-size-lg)',
+                      fontWeight: '700',
+                      marginBottom: 'var(--spacing-sm)',
+                      color: 'var(--text-primary)',
+                    }}>
+                      {item.question[language]}
+                    </h3>
+                    <p style={{
+                      color: 'var(--text-secondary)',
+                      lineHeight: 1.6,
+                    }}>
+                      {item.answer[language]}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* CTA Section */}
+      <motion.section
+        ref={ctaRef}
+        initial="hidden"
+        animate={ctaInView ? "visible" : "hidden"}
+        variants={containerVariants}
+        style={{
+          padding: 'var(--spacing-2xl) 0',
+          background: 'var(--light-green)',
+        }}
+      >
+        <div className="container text-center" style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          background: 'var(--medium-green)',
+          boxShadow: '0 10px 30px rgba(16, 185, 129, 0.15)',
+          padding: 'var(--spacing-2xl)',
+          borderRadius: 'var(--border-radius-lg)',
+        }}>
           <motion.h2
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-3xl)',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
               marginBottom: 'var(--spacing-lg)',
+              fontWeight: '800',
             }}
           >
             {language === 'en'
@@ -325,31 +623,64 @@ const HowItWorks = () => {
             variants={itemVariants}
             style={{
               fontSize: 'var(--font-size-lg)',
-              maxWidth: '600px',
-              margin: '0 auto var(--spacing-xl)',
+              marginBottom: 'var(--spacing-xl)',
+              opacity: 0.9,
             }}
           >
             {language === 'en'
               ? 'Contact us today to discuss how we can help automate your business processes'
               : 'Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować Twoje procesy biznesowe'}
           </motion.p>
-          <motion.div
-            variants={itemVariants}
-          >
-            <Link
-              to="/contact"
-              style={{
-                background: 'var(--primary-color)',
-                color: 'var(--text-light)',
-                padding: 'var(--spacing-md) var(--spacing-xl)',
-                borderRadius: 'var(--border-radius-md)',
-                fontWeight: '600',
-                display: 'inline-block',
-              }}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {language === 'en' ? 'Get Started' : 'Rozpocznij'}
-            </Link>
-          </motion.div>
+              <Link
+                to="/contact"
+                style={{
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+                  color: '#fff',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                }}
+              >
+                {language === 'en' ? 'Get Started' : 'Rozpocznij'}
+                <FaPhoneAlt />
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/services"
+                style={{
+                  background: 'transparent',
+                  color: 'var(--primary-color)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  border: '2px solid var(--primary-color)',
+                }}
+              >
+                {language === 'en' ? 'Learn More' : 'Dowiedz się więcej'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
     </div>
