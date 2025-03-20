@@ -1,0 +1,146 @@
+{
+  "navigation": {
+    "home": "Strona główna",
+    "solutions": "Rozwiązania",
+    "process": "Proces",
+    "getStarted": "Rozpocznij"
+  },
+  "home": {
+    "hero": {
+      "title": "Tworzymy Automatyzacje AI Dla Obsługi Klienta",
+      "description": "Wykorzystaj AI, aby zrewolucjonizować obsługę klienta, zwiększyć generowanie leadów i zautomatyzować procesy. Umów rozmowę, aby omówić strategię dopasowaną do Twoich potrzeb.",
+      "letsTalk": "Porozmawiajmy",
+      "ourServices": "Nasze Usługi"
+    },
+    "services": {
+      "title": "Nasze Usługi",
+      "description": "Wspieramy Cię w odkrywaniu i adaptacji zaawansowanych technologii AI, zapewniając płynne przejście od początkowej koncepcji do pełnego wdrożenia i kolejnych etapów.",
+      "chatbotDevelopment": {
+        "title": "Rozwój Chatbotów",
+        "description": "Inteligentne systemy konwersacyjne do obsługi klienta i automatyzacji procesów",
+        "features": {
+          "customerSupport": "obsługa klienta",
+          "leadGeneration": "generowanie leadów",
+          "leadQualification": "kwalifikacja leadów",
+          "productRecommendation": "rekomendacja produktów",
+          "voiceBots": "boty głosowe",
+          "customSolutions": "rozwiązania niestandardowe"
+        }
+      },
+      "workflowAutomations": {
+        "title": "Automatyzacja Procesów",
+        "description": "Usprawnianie operacji dzięki inteligentnej automatyzacji",
+        "features": {
+          "socialMediaAutomation": "automatyzacja mediów społecznościowych",
+          "crmManagement": "zarządzanie CRM",
+          "leadQualification": "kwalifikacja leadów",
+          "onboardingProcess": "proces wdrażania",
+          "webScrapingSystems": "systemy scrapingu stron",
+          "customSolutions": "rozwiązania niestandardowe"
+        }
+      },
+      "individualConsulting": {
+        "title": "Indywidualne Doradztwo",
+        "description": "Eksperckie wsparcie w procesie wdrażania AI",
+        "features": {
+          "strategicPlanning": "Planowanie Strategiczne",
+          "feasibilityEvaluations": "Oceny Wykonalności",
+          "identifyingUseCases": "Identyfikacja Przypadków Użycia",
+          "coachingForAIImplementation": "Coaching Wdrożenia AI"
+        }
+      },
+      "discoverMore": "Odkryj więcej"
+    },
+    "process": {
+      "title": "Nasz Proces",
+      "description": "Ciesz się usprawnioną współpracą z nami, pomijając tradycyjne skomplikowane wdrażanie agencji. Gotowy, aby zacząć? Zarezerwuj swoją rozmowę wstępną teraz.",
+      "bookCall": "Umów rozmowę",
+      "steps": {
+        "introCall": {
+          "title": "Rozmowa Wstępna",
+          "description": "Zaplanuj rozmowę, aby zbadać naszą kompatybilność i omówić, jak nasze usługi mogą ulepszyć Twoją firmę. Dążymy do poznania Twoich obecnych operacji i zidentyfikowania sposobów na dodanie wartości."
+        },
+        "strategy": {
+          "title": "Strategia",
+          "description": "Po zrozumieniu Twoich potrzeb, ustalimy kolejną rozmowę, aby przedstawić naszą propozycję. Obejmie ona oczekiwane rezultaty, strategię wdrożenia, harmonogramy i szczegóły cenowe."
+        },
+        "implementation": {
+          "title": "Wdrożenie",
+          "description": "Po otrzymaniu Twojej zgody, nasz zespół rozpocznie proces, zapewniając Ci aktualizacje przez cały czas i utrzymując ścisłą współpracę za pośrednictwem naszego kanału Slack."
+        }
+      }
+    },
+    "team": {
+      "title": "Nasz Zespół",
+      "description": "Twoi Partnerzy w Transformacji Napędzanej przez AI",
+      "roles": {
+        "aiSolutionsArchitect": "Architekt Rozwiązań AI",
+        "automationSpecialist": "Specjalista ds. Automatyzacji"
+      },
+      "bios": {
+        "johnSmith": "Z ponad 10-letnim doświadczeniem w AI i uczeniu maszynowym, John prowadzi nasze wdrożenia techniczne.",
+        "sarahJohnson": "Sarah pomogła dziesiątkom firm usprawnić ich działania poprzez inteligentne rozwiązania automatyzacji."
+      }
+    },
+    "cta": {
+      "title": "Masz Pytania?",
+      "description": "Zaplanuj swoją konsultację z AIstream już dziś.",
+      "contactUs": "Skontaktuj się z Nami",
+      "emailUs": "Wyślij Email"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Skontaktuj Się Z Naszym Zespołem",
+      "description": "Masz pytania dotyczące naszych rozwiązań AI? Gotowy, aby rozpocząć swoją podróż z automatyzacją? Nasz zespół jest tutaj, aby pomóc Ci przekształcić Twoją firmę dzięki najnowocześniejszej technologii."
+    },
+    "connectWithUs": {
+      "title": "Połącz Się Z Nami",
+      "emailUs": {
+        "title": "Email",
+        "description": "Wyślij nam email, a odpowiemy w ciągu 24 godzin"
+      },
+      "callUs": {
+        "title": "Telefon",
+        "description": "Dostępni od poniedziałku do piątku od 9:00 do 17:00 CET"
+      },
+      "visitUs": {
+        "title": "Adres",
+        "description": "Umów się na spotkanie osobiste"
+      },
+      "connectNow": "Połącz Teraz"
+    },
+    "form": {
+      "title": "Wyślij Nam Wiadomość",
+      "description": "Wypełnij formularz, a nasz zespół skontaktuje się z Tobą w ciągu 24 godzin. Nie możemy się doczekać, aby usłyszeć o Twoim projekcie!",
+      "quickResponse": "Szybka Odpowiedź",
+      "expertAdvice": "Ekspercka Porada",
+      "yourName": "Twoje Imię *",
+      "emailAddress": "Adres Email *",
+      "phoneNumber": "Numer Telefonu",
+      "companyName": "Nazwa Firmy",
+      "selectService": "Wybierz usługę",
+      "services": {
+        "aiChatbots": "Chatboty AI",
+        "processAutomation": "Automatyzacja Procesów",
+        "dataProcessing": "Przetwarzanie Danych",
+        "systemIntegration": "Integracja Systemów",
+        "other": "Inne"
+      },
+      "yourMessage": "Twoja Wiadomość *",
+      "sending": "Wysyłanie...",
+      "sendMessage": "Wyślij Wiadomość",
+      "thankYou": "Dziękujemy za wiadomość! Odpowiemy wkrótce."
+    },
+    "cta": {
+      "title": "Gotowy na Transformację Swojego Biznesu?",
+      "description": "Zaplanuj bezpłatną konsultację z naszymi ekspertami AI już dziś.",
+      "bookCall": "Umów Rozmowę",
+      "emailUs": "Wyślij Email"
+    }
+  },
+  "footer": {
+    "contactUs": "KONTAKT",
+    "allRightsReserved": "Wszelkie prawa zastrzeżone."
+  }
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaEnvelope,
   FaPhone,
@@ -13,7 +14,7 @@ import {
 } from 'react-icons/fa';
 
 const Contact = () => {
-  const [language] = useState('en');
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,42 +49,33 @@ const Contact = () => {
 
   // Service options
   const serviceOptions = [
-    { value: '', label: { en: 'Select a service', pl: 'Wybierz usługę' } },
-    { value: 'chatbots', label: { en: 'AI Chatbots', pl: 'Chatboty AI' } },
-    { value: 'automation', label: { en: 'Process Automation', pl: 'Automatyzacja Procesów' } },
-    { value: 'data', label: { en: 'Data Processing', pl: 'Przetwarzanie Danych' } },
-    { value: 'integration', label: { en: 'System Integration', pl: 'Integracja Systemów' } },
-    { value: 'other', label: { en: 'Other', pl: 'Inne' } }
+    { value: '', labelKey: 'contact.form.services.selectService' },
+    { value: 'chatbots', labelKey: 'contact.form.services.aiChatbots' },
+    { value: 'automation', labelKey: 'contact.form.services.processAutomation' },
+    { value: 'data', labelKey: 'contact.form.services.dataProcessing' },
+    { value: 'integration', labelKey: 'contact.form.services.systemIntegration' },
+    { value: 'other', labelKey: 'contact.form.services.other' }
   ];
 
   // Contact info
   const contactInfo = [
     {
       icon: FaEnvelope,
-      title: { en: 'Email Us', pl: 'Email' },
+      titleKey: 'contact.connectWithUs.emailUs.title',
       content: 'contact@aistream.com',
-      description: {
-        en: 'Send us an email anytime and we\'ll respond within 24 hours',
-        pl: 'Wyślij nam email, a odpowiemy w ciągu 24 godzin'
-      }
+      descriptionKey: 'contact.connectWithUs.emailUs.description'
     },
     {
       icon: FaPhone,
-      title: { en: 'Call Us', pl: 'Telefon' },
+      titleKey: 'contact.connectWithUs.callUs.title',
       content: '+48 123 456 789',
-      description: {
-        en: 'Available Monday-Friday from 9am to 5pm CET',
-        pl: 'Dostępni od poniedziałku do piątku od 9:00 do 17:00 CET'
-      }
+      descriptionKey: 'contact.connectWithUs.callUs.description'
     },
     {
       icon: FaMapMarkerAlt,
-      title: { en: 'Visit Us', pl: 'Adres' },
+      titleKey: 'contact.connectWithUs.visitUs.title',
       content: 'ul. Przykładowa 123, 00-001 Warszawa',
-      description: {
-        en: 'Schedule an appointment to meet in person',
-        pl: 'Umów się na spotkanie osobiste'
-      }
+      descriptionKey: 'contact.connectWithUs.visitUs.description'
     }
   ];
 
@@ -185,9 +177,7 @@ const Contact = () => {
               color: 'var(--text-primary)',
             }}
           >
-            {language === 'en'
-              ? 'Get In Touch With Our Team'
-              : 'Skontaktuj Się Z Naszym Zespołem'}
+            {t('contact.hero.title')}
           </motion.h1>
           <motion.p
             variants={itemVariants}
@@ -198,9 +188,7 @@ const Contact = () => {
               lineHeight: 1.6,
             }}
           >
-            {language === 'en'
-              ? 'Have questions about our AI solutions? Ready to start your automation journey? Our team is here to help you transform your business with cutting-edge technology.'
-              : 'Masz pytania dotyczące naszych rozwiązań AI? Gotowy, aby rozpocząć swoją podróż z automatyzacją? Nasz zespół jest tutaj, aby pomóc Ci przekształcić Twoją firmę dzięki najnowocześniejszej technologii.'}
+            {t('contact.hero.description')}
           </motion.p>
         </div>
       </motion.section>
@@ -227,7 +215,7 @@ const Contact = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en' ? 'Connect With Us' : 'Połącz Się Z Nami'}
+            {t('contact.connectWithUs.title')}
           </motion.h2>
           
           <div style={{
@@ -263,7 +251,7 @@ const Contact = () => {
                   color: 'var(--text-primary)',
                   fontWeight: '700',
                 }}>
-                  {info.title[language]}
+                  {t(info.titleKey)}
                 </h3>
                 <p style={{
                   fontWeight: '600',
@@ -276,7 +264,7 @@ const Contact = () => {
                   fontSize: 'var(--font-size-base)',
                   marginBottom: 'var(--spacing-lg)',
                 }}>
-                  {info.description[language]}
+                  {t(info.descriptionKey)}
                 </p>
                 <div style={{ marginTop: 'auto' }}>
                   <motion.div
@@ -294,7 +282,7 @@ const Contact = () => {
                         textDecoration: 'none',
                       }}
                     >
-                      {language === 'en' ? 'Connect Now' : 'Połącz Teraz'}
+                      {t('contact.connectWithUs.connectNow')}
                       <FaArrowRight size={14} />
                     </Link>
                   </motion.div>
@@ -355,7 +343,7 @@ const Contact = () => {
                 color: 'var(--text-primary)',
                 fontWeight: '800',
               }}>
-                {language === 'en' ? 'Send Us a Message' : 'Wyślij Nam Wiadomość'}
+                {t('contact.form.title')}
               </h2>
               <p style={{
                 fontSize: 'var(--font-size-lg)',
@@ -363,9 +351,7 @@ const Contact = () => {
                 color: 'var(--text-secondary)',
                 maxWidth: '500px',
               }}>
-                {language === 'en'
-                  ? 'Fill out the form and our team will get back to you within 24 hours. We\'re excited to hear about your project!'
-                  : 'Wypełnij formularz, a nasz zespół skontaktuje się z Tobą w ciągu 24 godzin. Nie możemy się doczekać, aby usłyszeć o Twoim projekcie!'}
+                {t('contact.form.description')}
               </p>
               
               <div style={{
@@ -379,7 +365,7 @@ const Contact = () => {
                   gap: 'var(--spacing-sm)',
                 }}>
                   <FaCalendarAlt style={{ color: 'var(--primary-color)' }} />
-                  <span>{language === 'en' ? 'Quick Response' : 'Szybka Odpowiedź'}</span>
+                  <span>{t('contact.form.quickResponse')}</span>
                 </div>
                 <div style={{
                   display: 'flex',
@@ -387,7 +373,7 @@ const Contact = () => {
                   gap: 'var(--spacing-sm)',
                 }}>
                   <FaComments style={{ color: 'var(--primary-color)' }} />
-                  <span>{language === 'en' ? 'Expert Advice' : 'Ekspercka Porada'}</span>
+                  <span>{t('contact.form.expertAdvice')}</span>
                 </div>
               </div>
             </motion.div>
@@ -409,7 +395,7 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder={language === 'en' ? 'Your Name *' : 'Twoje Imię *'}
+                      placeholder={t('contact.form.yourName')}
                       required
                       style={{
                         width: '100%',
@@ -424,7 +410,7 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder={language === 'en' ? 'Email Address *' : 'Adres Email *'}
+                      placeholder={t('contact.form.emailAddress')}
                       required
                       style={{
                         width: '100%',
@@ -444,7 +430,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder={language === 'en' ? 'Phone Number' : 'Numer Telefonu'}
+                        placeholder={t('contact.form.phoneNumber')}
                         style={{
                           width: '100%',
                           padding: 'var(--spacing-md)',
@@ -458,7 +444,7 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        placeholder={language === 'en' ? 'Company Name' : 'Nazwa Firmy'}
+                        placeholder={t('contact.form.companyName')}
                         style={{
                           width: '100%',
                           padding: 'var(--spacing-md)',
@@ -482,7 +468,7 @@ const Contact = () => {
                     >
                       {serviceOptions.map((option) => (
                         <option key={option.value} value={option.value}>
-                          {option.label[language]}
+                          {t(option.labelKey)}
                         </option>
                       ))}
                     </select>
@@ -490,7 +476,7 @@ const Contact = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder={language === 'en' ? 'Your Message *' : 'Twoja Wiadomość *'}
+                      placeholder={t('contact.form.yourMessage')}
                       required
                       rows={5}
                       style={{
@@ -523,8 +509,8 @@ const Contact = () => {
                     >
                       <FaPaperPlane />
                       {formStatus === 'sending'
-                        ? (language === 'en' ? 'Sending...' : 'Wysyłanie...')
-                        : (language === 'en' ? 'Send Message' : 'Wyślij Wiadomość')}
+                        ? t('contact.form.sending')
+                        : t('contact.form.sendMessage')}
                     </motion.button>
                   </div>
                 </form>
@@ -543,9 +529,7 @@ const Contact = () => {
                       fontWeight: '600',
                     }}
                   >
-                    {language === 'en'
-                      ? 'Thank you for your message! We will get back to you soon.'
-                      : 'Dziękujemy za wiadomość! Odpowiemy wkrótce.'}
+                    {t('contact.form.thankYou')}
                   </motion.div>
                 )}
               </div>
@@ -581,9 +565,7 @@ const Contact = () => {
               fontWeight: '800',
             }}
           >
-            {language === 'en'
-              ? 'Ready to Transform Your Business?'
-              : 'Gotowy na Transformację Swojego Biznesu?'}
+            {t('contact.cta.title')}
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -593,9 +575,7 @@ const Contact = () => {
               opacity: 0.9,
             }}
           >
-            {language === 'en'
-              ? 'Schedule a free consultation call with our AI experts today.'
-              : 'Zaplanuj bezpłatną konsultację z naszymi ekspertami AI już dziś.'}
+            {t('contact.cta.description')}
           </motion.p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
             <motion.div
@@ -620,7 +600,7 @@ const Contact = () => {
                   gap: 'var(--spacing-sm)',
                 }}
               >
-                {language === 'en' ? 'Book a Call' : 'Umów Rozmowę'}
+                {t('contact.cta.bookCall')}
                 <FaCalendarAlt />
               </a>
             </motion.div>
@@ -644,7 +624,7 @@ const Contact = () => {
                   border: '2px solid var(--primary-color)',
                 }}
               >
-                {language === 'en' ? 'Email Us' : 'Wyślij Email'}
+                {t('contact.cta.emailUs')}
                 <FaEnvelope />
               </a>
             </motion.div>

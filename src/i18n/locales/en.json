@@ -1,0 +1,146 @@
+{
+  "navigation": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "process": "Process",
+    "getStarted": "Get Started"
+  },
+  "home": {
+    "hero": {
+      "title": "We Build AI Automations For Customer Support",
+      "description": "Embrace AI to revolutionize your customer support, supercharge your lead generation, and automate your workflows. Book a call to discuss a tailor-made strategy that works for you.",
+      "letsTalk": "Let's talk",
+      "ourServices": "Our Services"
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "We support you in discovering and adapting advanced AI technologies, ensuring a smooth transition from initial concept to full implementation and subsequent stages.",
+      "chatbotDevelopment": {
+        "title": "Chatbot Development",
+        "description": "Intelligent conversational agents for customer support and process automation",
+        "features": {
+          "customerSupport": "customer support",
+          "leadGeneration": "lead generation",
+          "leadQualification": "lead qualification",
+          "productRecommendation": "product recommendation",
+          "voiceBots": "voice bots",
+          "customSolutions": "custom solutions"
+        }
+      },
+      "workflowAutomations": {
+        "title": "Workflow Automations",
+        "description": "Streamline operations with intelligent automation",
+        "features": {
+          "socialMediaAutomation": "social media automation",
+          "crmManagement": "CRM management",
+          "leadQualification": "lead qualification",
+          "onboardingProcess": "onboarding process",
+          "webScrapingSystems": "web scraping systems",
+          "customSolutions": "custom solutions"
+        }
+      },
+      "individualConsulting": {
+        "title": "Individual Consulting",
+        "description": "Expert guidance for your AI implementation journey",
+        "features": {
+          "strategicPlanning": "Strategic Planning",
+          "feasibilityEvaluations": "Feasibility Evaluations",
+          "identifyingUseCases": "Identifying Use Cases",
+          "coachingForAIImplementation": "Coaching for AI Implementation"
+        }
+      },
+      "discoverMore": "Discover more"
+    },
+    "process": {
+      "title": "Our Process",
+      "description": "Enjoy a streamlined start with us, ditching traditional complex agency onboarding. Ready to begin? Book your intro call now.",
+      "bookCall": "Book a call",
+      "steps": {
+        "introCall": {
+          "title": "Intro Call",
+          "description": "Schedule a call to explore our compatibility and discuss how our services can enhance your business. We aim to learn about your current operations and identify ways to add value."
+        },
+        "strategy": {
+          "title": "Strategy",
+          "description": "After understanding your needs, we'll set up a follow-up call to present our proposal. This will cover the expected deliverables, implementation strategy, timelines and pricing details."
+        },
+        "implementation": {
+          "title": "Implementation",
+          "description": "After receiving your go-ahead, our team will start the process, ensuring you're updated throughout and maintaining close collaboration via our Slack channel."
+        }
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "Your Partners in AI-Driven Transformation",
+      "roles": {
+        "aiSolutionsArchitect": "AI Solutions Architect",
+        "automationSpecialist": "Automation Specialist"
+      },
+      "bios": {
+        "johnSmith": "With over 10 years of experience in AI and machine learning, John leads our technical implementations.",
+        "sarahJohnson": "Sarah has helped dozens of companies streamline their operations through intelligent automation solutions."
+      }
+    },
+    "cta": {
+      "title": "Got Questions?",
+      "description": "Schedule your consultation with AIstream today.",
+      "contactUs": "Contact Us",
+      "emailUs": "Email Us"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get In Touch With Our Team",
+      "description": "Have questions about our AI solutions? Ready to start your automation journey? Our team is here to help you transform your business with cutting-edge technology."
+    },
+    "connectWithUs": {
+      "title": "Connect With Us",
+      "emailUs": {
+        "title": "Email Us",
+        "description": "Send us an email anytime and we'll respond within 24 hours"
+      },
+      "callUs": {
+        "title": "Call Us",
+        "description": "Available Monday-Friday from 9am to 5pm CET"
+      },
+      "visitUs": {
+        "title": "Visit Us",
+        "description": "Schedule an appointment to meet in person"
+      },
+      "connectNow": "Connect Now"
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "description": "Fill out the form and our team will get back to you within 24 hours. We're excited to hear about your project!",
+      "quickResponse": "Quick Response",
+      "expertAdvice": "Expert Advice",
+      "yourName": "Your Name *",
+      "emailAddress": "Email Address *",
+      "phoneNumber": "Phone Number",
+      "companyName": "Company Name",
+      "selectService": "Select a service",
+      "services": {
+        "aiChatbots": "AI Chatbots",
+        "processAutomation": "Process Automation",
+        "dataProcessing": "Data Processing",
+        "systemIntegration": "System Integration",
+        "other": "Other"
+      },
+      "yourMessage": "Your Message *",
+      "sending": "Sending...",
+      "sendMessage": "Send Message",
+      "thankYou": "Thank you for your message! We will get back to you soon."
+    },
+    "cta": {
+      "title": "Ready to Transform Your Business?",
+      "description": "Schedule a free consultation call with our AI experts today.",
+      "bookCall": "Book a Call",
+      "emailUs": "Email Us"
+    }
+  },
+  "footer": {
+    "contactUs": "CONTACT US",
+    "allRightsReserved": "All rights reserved."
+  }
+}

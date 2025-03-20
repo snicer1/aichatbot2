@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -7,9 +7,10 @@ import {
   FaEnvelope,
   FaMapMarkerAlt
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const [language] = useState('en'); // This should be managed globally in a real app
+  const { t } = useTranslation();
 
   return (
     <footer style={{
@@ -92,7 +93,7 @@ const Footer = () => {
               marginBottom: 'var(--spacing-md)',
               fontWeight: '700',
             }}>
-              {language === 'en' ? 'CONTACT US' : 'KONTAKT'}
+              {t('footer.contactUs')}
             </h3>
             <div style={{
               display: 'flex',
@@ -138,7 +139,7 @@ const Footer = () => {
           textAlign: 'center',
         }}>
           <p>
-            © {new Date().getFullYear()} {language === 'en' ? 'All rights reserved.' : 'Wszelkie prawa zastrzeżone.'} AIstream AI
+            © {new Date().getFullYear()} {t('footer.allRightsReserved')} AIstream AI
           </p>
         </div>
       </div>

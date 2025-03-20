@@ -4,14 +4,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import { IoLanguage } from 'react-icons/io5';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '../../i18n/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [language, setLanguage] = useState('en');
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const location = useLocation();
   const langDropdownRef = useRef(null);
+  const { t } = useTranslation();
+  const { language, changeLanguage } = useLanguage();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,9 +39,9 @@ const Navbar = () => {
   }, [isOpen]);
 
   const navItems = [
-    { path: '/', label: { en: 'Home', pl: 'Strona główna' } },
-    { path: '/services', label: { en: 'Solutions', pl: 'Rozwiązania' } },
-    { path: '/how-it-works', label: { en: 'Process', pl: 'Proces' } },
+    { path: '/', translationKey: 'navigation.home' },
+    { path: '/services', translationKey: 'navigation.solutions' },
+    { path: '/how-it-works', translationKey: 'navigation.process' },
   ];
 
   useEffect(() => {
@@ -166,7 +169,7 @@ const Navbar = () => {
                 } : {},
               }}
             >
-              {item.label[language]}
+              {t(item.translationKey)}
             </Link>
           ))}
           
@@ -219,7 +222,7 @@ const Navbar = () => {
                     <button
                       key={lang.code}
                       onClick={() => {
-                        setLanguage(lang.code);
+                        changeLanguage(lang.code);
                         setIsLangDropdownOpen(false);
                       }}
                       style={{
@@ -265,7 +268,7 @@ const Navbar = () => {
               }
             }}
           >
-            {language === 'en' ? 'Get Started' : 'Rozpocznij'}
+            {t('navigation.getStarted')}
           </Link>
         </div>
 
@@ -357,7 +360,7 @@ const Navbar = () => {
                         paddingLeft: 'var(--spacing-md)',
                       }}
                     >
-                      {item.label[language]}
+                      {t(item.translationKey)}
                     </Link>
                   </motion.div>
                 ))}
@@ -378,7 +381,7 @@ const Navbar = () => {
                       boxShadow: '0 4px 10px rgba(93, 93, 255, 0.2)',
                     }}
                   >
-                    {language === 'en' ? 'Get Started' : 'Rozpocznij'}
+                    {t('navigation.getStarted')}
                   </Link>
                 </motion.div>
                 
@@ -391,7 +394,7 @@ const Navbar = () => {
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        onClick={() => setLanguage(lang.code)}
+                        onClick={() => changeLanguage(lang.code)}
                         style={{
                           flex: 1,
                           padding: 'var(--spacing-sm)',
