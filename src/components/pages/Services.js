@@ -16,12 +16,23 @@ import {
   FaHandshake,
   FaTools,
   FaPlug,
-  FaBell
+  FaBell,
+  FaIndustry,
+  FaHospital,
+  FaShoppingCart,
+  FaUniversity,
+  FaClock,
+  FaUsers,
+  FaDollarSign,
+  FaArrowRight,
+  FaPhoneAlt
 } from 'react-icons/fa';
 
 const Services = () => {
   const [language] = useState('en');
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCase, setSelectedCase] = useState(null);
+  const [activeTab, setActiveTab] = useState('services'); // 'services' or 'case-studies'
 
   // Animation variants
   const containerVariants = {
@@ -222,196 +233,731 @@ const Services = () => {
     }
   ];
 
+  // Case studies data
+  const caseStudies = [
+    {
+      id: 'manufacturing',
+      icon: FaIndustry,
+      title: { en: 'Manufacturing Excellence', pl: 'Doskonałość w Produkcji' },
+      company: { en: 'Global Manufacturing Corp', pl: 'Global Manufacturing Corp' },
+      challenge: {
+        en: 'Inefficient production processes leading to delays and increased costs',
+        pl: 'Nieefektywne procesy produkcyjne prowadzące do opóźnień i zwiększonych kosztów'
+      },
+      solution: {
+        en: 'Implemented AI-driven process automation and predictive maintenance systems',
+        pl: 'Wdrożono automatyzację procesów opartą na AI i systemy konserwacji predykcyjnej'
+      },
+      results: [
+        {
+          icon: FaChartLine,
+          text: { en: '35% increase in productivity', pl: '35% wzrost produktywności' }
+        },
+        {
+          icon: FaClock,
+          text: { en: '60% reduction in downtime', pl: '60% redukcja przestojów' }
+        },
+        {
+          icon: FaDollarSign,
+          text: { en: '25% cost savings', pl: '25% oszczędności kosztów' }
+        }
+      ]
+    },
+    {
+      id: 'healthcare',
+      icon: FaHospital,
+      title: { en: 'Healthcare Innovation', pl: 'Innowacje w Opiece Zdrowotnej' },
+      company: { en: 'MedTech Solutions', pl: 'MedTech Solutions' },
+      challenge: {
+        en: 'Manual patient data management causing delays in care delivery',
+        pl: 'Ręczne zarządzanie danymi pacjentów powodujące opóźnienia w świadczeniu opieki'
+      },
+      solution: {
+        en: 'Deployed AI chatbots for patient scheduling and automated documentation',
+        pl: 'Wdrożono chatboty AI do planowania wizyt pacjentów i automatycznej dokumentacji'
+      },
+      results: [
+        {
+          icon: FaUsers,
+          text: { en: '50% faster patient processing', pl: '50% szybsza obsługa pacjentów' }
+        },
+        {
+          icon: FaChartLine,
+          text: { en: '40% improved efficiency', pl: '40% poprawa efektywności' }
+        },
+        {
+          icon: FaDollarSign,
+          text: { en: '30% operational savings', pl: '30% oszczędności operacyjne' }
+        }
+      ]
+    },
+    {
+      id: 'retail',
+      icon: FaShoppingCart,
+      title: { en: 'Retail Transformation', pl: 'Transformacja Handlu Detalicznego' },
+      company: { en: 'Smart Retail Co', pl: 'Smart Retail Co' },
+      challenge: {
+        en: 'Inefficient inventory management and customer service',
+        pl: 'Nieefektywne zarządzanie zapasami i obsługa klienta'
+      },
+      solution: {
+        en: 'Implemented AI-powered inventory prediction and customer service automation',
+        pl: 'Wdrożono przewidywanie zapasów oparte na AI i automatyzację obsługi klienta'
+      },
+      results: [
+        {
+          icon: FaChartLine,
+          text: { en: '45% reduced stockouts', pl: '45% redukcja braków w magazynie' }
+        },
+        {
+          icon: FaUsers,
+          text: { en: '90% faster response times', pl: '90% szybszy czas odpowiedzi' }
+        },
+        {
+          icon: FaDollarSign,
+          text: { en: '20% increased sales', pl: '20% wzrost sprzedaży' }
+        }
+      ]
+    },
+    {
+      id: 'education',
+      icon: FaUniversity,
+      title: { en: 'Education Evolution', pl: 'Ewolucja Edukacji' },
+      company: { en: 'EduTech Institute', pl: 'EduTech Institute' },
+      challenge: {
+        en: 'Complex administrative processes and student support needs',
+        pl: 'Złożone procesy administracyjne i potrzeby wsparcia studentów'
+      },
+      solution: {
+        en: 'Deployed comprehensive automation system for administration and student services',
+        pl: 'Wdrożono kompleksowy system automatyzacji dla administracji i obsługi studentów'
+      },
+      results: [
+        {
+          icon: FaClock,
+          text: { en: '70% faster processing', pl: '70% szybsze przetwarzanie' }
+        },
+        {
+          icon: FaUsers,
+          text: { en: '24/7 student support', pl: 'Całodobowe wsparcie studentów' }
+        },
+        {
+          icon: FaDollarSign,
+          text: { en: '35% cost reduction', pl: '35% redukcja kosztów' }
+        }
+      ]
+    }
+  ];
+
   // Intersection observer hooks
-  const [headerRef, headerInView] = useInView({ threshold: 0.1, triggerOnce: true });
-  const [servicesRef, servicesInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [heroRef, heroInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [tabsRef, tabsInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [contentRef, contentInView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ctaRef, ctaInView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <div style={{ paddingTop: 'var(--spacing-2xl)' }}>
-      {/* Header Section */}
+    <div>
+      {/* Hero Section */}
       <motion.section
-        ref={headerRef}
+        ref={heroRef}
         initial="hidden"
-        animate={headerInView ? "visible" : "hidden"}
+        animate={heroInView ? "visible" : "hidden"}
         variants={containerVariants}
         style={{
-          background: 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))',
-          color: 'var(--text-light)',
+          minHeight: '70vh',
+          display: 'flex',
+          alignItems: 'center',
+          background: 'linear-gradient(135deg, var(--light-green), var(--medium-green))',
+          color: 'var(--text-primary)',
           padding: 'var(--spacing-2xl) 0',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div className="container text-center">
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.2) 100%)',
+          zIndex: 0,
+        }} />
+        
+        {/* Animated shapes for visual interest */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: '5%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
+        <div style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: '5%',
+          width: '200px',
+          height: '200px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h1
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-4xl)',
+              fontSize: 'clamp(3rem, 8vw, 5rem)',
               marginBottom: 'var(--spacing-lg)',
+              maxWidth: '900px',
+              lineHeight: 1.1,
+              fontWeight: '800',
+              color: 'var(--text-primary)',
             }}
           >
-            {language === 'en' ? 'Our Services' : 'Nasze Usługi'}
+            {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
           </motion.h1>
           <motion.p
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-lg)',
-              maxWidth: '800px',
-              margin: '0 auto',
+              fontSize: 'clamp(1.125rem, 2vw, var(--font-size-lg))',
+              marginBottom: 'var(--spacing-xl)',
+              maxWidth: '700px',
+              lineHeight: 1.6,
             }}
           >
             {language === 'en'
-              ? 'Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations'
-              : 'Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych'}
+              ? 'Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations and explore real-world success stories.'
+              : 'Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych i poznaj historie sukcesu z prawdziwego świata.'}
           </motion.p>
+          <motion.div
+            variants={itemVariants}
+            style={{
+              display: 'flex',
+              gap: 'var(--spacing-md)',
+              flexWrap: 'wrap',
+              position: 'relative',
+              zIndex: 1,
+              marginTop: 'var(--spacing-xl)',
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                style={{
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+                  color: '#fff',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'var(--transition-normal)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
+                }}
+              >
+                {language === 'en' ? "Get Started" : 'Rozpocznij'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/how-it-works"
+                style={{
+                  background: 'transparent',
+                  color: 'var(--primary-color)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  transition: 'var(--transition-normal)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  border: '2px solid var(--primary-color)',
+                }}
+              >
+                {language === 'en' ? "How It Works" : 'Jak To Działa'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </motion.section>
 
-      {/* Services Grid */}
+      {/* Tabs Section */}
       <motion.section
-        ref={servicesRef}
+        ref={tabsRef}
         initial="hidden"
-        animate={servicesInView ? "visible" : "hidden"}
+        animate={tabsInView ? "visible" : "hidden"}
         variants={containerVariants}
         style={{
-          padding: 'var(--spacing-2xl) 0',
-          background: 'var(--background-color)',
+          padding: 'var(--spacing-xl) 0',
+          background: 'var(--light-green)',
+          borderBottom: '1px solid rgba(16, 185, 129, 0.2)',
         }}
       >
         <div className="container">
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: ['1fr', '1fr 1fr', 'repeat(3, 1fr)'],
-            gap: 'var(--spacing-xl)',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 'var(--spacing-md)',
+            flexWrap: 'wrap',
           }}>
-            {serviceCategories.map((category) => (
-              <motion.div
-                key={category.id}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                style={{
-                  background: 'white',
-                  borderRadius: 'var(--border-radius-lg)',
-                  padding: 'var(--spacing-xl)',
-                  boxShadow: 'var(--shadow-md)',
-                  cursor: 'pointer',
-                }}
-                onClick={() => setSelectedCategory(
-                  selectedCategory === category.id ? null : category.id
-                )}
-              >
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'var(--spacing-md)',
-                  marginBottom: 'var(--spacing-md)',
-                }}>
-                  <category.icon
-                    style={{
-                      fontSize: 'var(--font-size-2xl)',
-                      color: 'var(--primary-color)',
-                    }}
-                  />
-                  <h3 style={{
-                    fontSize: 'var(--font-size-xl)',
-                    margin: 0,
-                  }}>
-                    {category.title[language]}
-                  </h3>
-                </div>
+            <motion.button
+              variants={itemVariants}
+              whileHover={{ y: -2 }}
+              onClick={() => setActiveTab('services')}
+              style={{
+                background: activeTab === 'services' 
+                  ? 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))'
+                  : 'white',
+                color: activeTab === 'services' ? 'white' : 'var(--text-primary)',
+                padding: 'var(--spacing-md) var(--spacing-xl)',
+                borderRadius: 'var(--border-radius-md)',
+                fontWeight: '600',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: activeTab === 'services' 
+                  ? '0 4px 10px rgba(16, 185, 129, 0.2)'
+                  : '0 2px 5px rgba(0, 0, 0, 0.05)',
+                transition: 'var(--transition-normal)',
+                fontSize: 'var(--font-size-base)',
+              }}
+            >
+              {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
+            </motion.button>
+            <motion.button
+              variants={itemVariants}
+              whileHover={{ y: -2 }}
+              onClick={() => setActiveTab('case-studies')}
+              style={{
+                background: activeTab === 'case-studies' 
+                  ? 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))'
+                  : 'white',
+                color: activeTab === 'case-studies' ? 'white' : 'var(--text-primary)',
+                padding: 'var(--spacing-md) var(--spacing-xl)',
+                borderRadius: 'var(--border-radius-md)',
+                fontWeight: '600',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: activeTab === 'case-studies' 
+                  ? '0 4px 10px rgba(16, 185, 129, 0.2)'
+                  : '0 2px 5px rgba(0, 0, 0, 0.05)',
+                transition: 'var(--transition-normal)',
+                fontSize: 'var(--font-size-base)',
+              }}
+            >
+              {language === 'en' ? 'Case Studies' : 'Case Studies'}
+            </motion.button>
+          </div>
+        </div>
+      </motion.section>
 
-                {/* Service Details */}
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{
-                    height: selectedCategory === category.id ? 'auto' : 0,
-                    opacity: selectedCategory === category.id ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  style={{ overflow: 'hidden' }}
-                >
-                  {category.services.map((service, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        marginTop: 'var(--spacing-md)',
-                        padding: 'var(--spacing-md)',
-                        background: 'var(--background-color)',
-                        borderRadius: 'var(--border-radius-md)',
+      {/* Content Section */}
+      <motion.section
+        ref={contentRef}
+        initial="hidden"
+        animate={contentInView ? "visible" : "hidden"}
+        variants={containerVariants}
+        style={{
+          padding: 'var(--spacing-2xl) 0',
+          background: 'var(--light-green)',
+        }}
+      >
+        <div className="container">
+          {/* Services Content */}
+          {activeTab === 'services' && (
+            <>
+              <motion.h2
+                variants={itemVariants}
+                className="text-center"
+                style={{
+                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                  marginBottom: 'var(--spacing-md)',
+                  color: 'var(--text-primary)',
+                  fontWeight: '800',
+                }}
+              >
+                {language === 'en' ? 'Our Solutions' : 'Nasze Rozwiązania'}
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-center"
+                style={{
+                  fontSize: 'var(--font-size-lg)',
+                  marginBottom: 'var(--spacing-2xl)',
+                  maxWidth: '800px',
+                  margin: '0 auto var(--spacing-2xl)',
+                }}
+              >
+                {language === 'en'
+                  ? 'Discover our comprehensive range of AI-powered automation solutions designed to transform your business operations'
+                  : 'Odkryj naszą kompleksową gamę rozwiązań automatyzacji opartych na AI, zaprojektowanych do transformacji operacji biznesowych'}
+              </motion.p>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+                gap: 'var(--spacing-xl)',
+              }}>
+                {serviceCategories.map((category) => (
+                  <motion.div
+                    key={category.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(16, 185, 129, 0.15)' }}
+                    style={{
+                      background: 'var(--medium-green)',
+                      borderRadius: 'var(--border-radius-lg)',
+                      padding: 'var(--spacing-xl)',
+                      boxShadow: 'var(--shadow-md)',
+                      cursor: 'pointer',
+                      transition: 'var(--transition-normal)',
+                    }}
+                    onClick={() => setSelectedCategory(
+                      selectedCategory === category.id ? null : category.id
+                    )}
+                  >
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 'var(--spacing-md)',
+                      marginBottom: 'var(--spacing-md)',
+                    }}>
+                      <div style={{
+                        width: '50px',
+                        height: '50px',
+                        borderRadius: '50%',
+                        background: 'var(--light-green)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                        <category.icon
+                          style={{
+                            fontSize: 'var(--font-size-xl)',
+                            color: 'var(--primary-color)',
+                          }}
+                        />
+                      </div>
+                      <h3 style={{
+                        fontSize: 'var(--font-size-xl)',
+                        margin: 0,
+                        color: 'var(--text-primary)',
+                        fontWeight: '700',
+                      }}>
+                        {category.title[language]}
+                      </h3>
+                    </div>
+
+                    {/* Service Details */}
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{
+                        height: selectedCategory === category.id ? 'auto' : 0,
+                        opacity: selectedCategory === category.id ? 1 : 0,
                       }}
+                      transition={{ duration: 0.3 }}
+                      style={{ overflow: 'hidden' }}
                     >
-                      <h4 style={{
+                      {category.services.map((service, index) => (
+                        <div
+                          key={index}
+                          style={{
+                            marginTop: 'var(--spacing-md)',
+                            padding: 'var(--spacing-md)',
+                            background: 'white',
+                            borderRadius: 'var(--border-radius-md)',
+                            boxShadow: '0 2px 5px rgba(0, 0, 0, 0.05)',
+                          }}
+                        >
+                          <h4 style={{
+                            fontSize: 'var(--font-size-lg)',
+                            marginBottom: 'var(--spacing-sm)',
+                            color: 'var(--text-primary)',
+                            fontWeight: '600',
+                          }}>
+                            {service.title[language]}
+                          </h4>
+                          <p style={{
+                            fontSize: 'var(--font-size-base)',
+                            color: 'var(--text-secondary)',
+                            lineHeight: 1.6,
+                          }}>
+                            {service.description[language]}
+                          </p>
+                        </div>
+                      ))}
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {/* Case Studies Content */}
+          {activeTab === 'case-studies' && (
+            <>
+              <motion.h2
+                variants={itemVariants}
+                className="text-center"
+                style={{
+                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
+                  marginBottom: 'var(--spacing-md)',
+                  color: 'var(--text-primary)',
+                  fontWeight: '800',
+                }}
+              >
+                {language === 'en' ? 'Case Studies' : 'Case Studies'}
+              </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-center"
+                style={{
+                  fontSize: 'var(--font-size-lg)',
+                  marginBottom: 'var(--spacing-2xl)',
+                  maxWidth: '800px',
+                  margin: '0 auto var(--spacing-2xl)',
+                }}
+              >
+                {language === 'en'
+                  ? 'Discover how our AI solutions have transformed businesses across industries'
+                  : 'Zobacz, jak nasze rozwiązania AI transformują firmy w różnych branżach'}
+              </motion.p>
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+                gap: 'var(--spacing-xl)',
+              }}>
+                {caseStudies.map((study) => (
+                  <motion.div
+                    key={study.id}
+                    variants={itemVariants}
+                    whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(16, 185, 129, 0.15)' }}
+                    style={{
+                      background: 'white',
+                      borderRadius: 'var(--border-radius-lg)',
+                      overflow: 'hidden',
+                      boxShadow: 'var(--shadow-md)',
+                      cursor: 'pointer',
+                      transition: 'var(--transition-normal)',
+                    }}
+                    onClick={() => setSelectedCase(selectedCase === study.id ? null : study.id)}
+                  >
+                    <div style={{
+                      background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+                      padding: 'var(--spacing-lg)',
+                      color: 'var(--text-light)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: 'var(--spacing-md)',
+                    }}>
+                      <study.icon style={{ fontSize: 'var(--font-size-2xl)' }} />
+                      <h3 style={{ margin: 0, fontWeight: '700' }}>{study.title[language]}</h3>
+                    </div>
+                    
+                    <div style={{ padding: 'var(--spacing-lg)' }}>
+                      <p style={{
                         fontSize: 'var(--font-size-lg)',
+                        color: 'var(--primary-color)',
+                        marginBottom: 'var(--spacing-md)',
+                        fontWeight: '600',
+                      }}>
+                        {study.company[language]}
+                      </p>
+                      
+                      <h4 style={{
+                        fontSize: 'var(--font-size-base)',
                         marginBottom: 'var(--spacing-sm)',
                         color: 'var(--text-primary)',
+                        fontWeight: '700',
                       }}>
-                        {service.title[language]}
+                        {language === 'en' ? 'Challenge:' : 'Wyzwanie:'}
                       </h4>
-                      <p style={{
-                        fontSize: 'var(--font-size-base)',
+                      <p style={{ 
+                        marginBottom: 'var(--spacing-md)',
                         color: 'var(--text-secondary)',
+                        lineHeight: 1.6,
                       }}>
-                        {service.description[language]}
+                        {study.challenge[language]}
                       </p>
+
+                      <h4 style={{
+                        fontSize: 'var(--font-size-base)',
+                        marginBottom: 'var(--spacing-sm)',
+                        color: 'var(--text-primary)',
+                        fontWeight: '700',
+                      }}>
+                        {language === 'en' ? 'Solution:' : 'Rozwiązanie:'}
+                      </h4>
+                      <p style={{ 
+                        marginBottom: 'var(--spacing-md)',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.6,
+                      }}>
+                        {study.solution[language]}
+                      </p>
+
+                      {/* Results */}
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{
+                          height: selectedCase === study.id ? 'auto' : 0,
+                          opacity: selectedCase === study.id ? 1 : 0,
+                        }}
+                        transition={{ duration: 0.3 }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <h4 style={{
+                          fontSize: 'var(--font-size-base)',
+                          marginBottom: 'var(--spacing-md)',
+                          color: 'var(--text-primary)',
+                          fontWeight: '700',
+                        }}>
+                          {language === 'en' ? 'Results:' : 'Rezultaty:'}
+                        </h4>
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+                          gap: 'var(--spacing-md)',
+                        }}>
+                          {study.results.map((result, index) => (
+                            <div
+                              key={index}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 'var(--spacing-sm)',
+                                background: 'var(--light-green)',
+                                padding: 'var(--spacing-sm)',
+                                borderRadius: 'var(--border-radius-md)',
+                              }}
+                            >
+                              <result.icon
+                                style={{
+                                  color: 'var(--primary-color)',
+                                  fontSize: 'var(--font-size-lg)',
+                                }}
+                              />
+                              <span style={{ fontWeight: '600' }}>{result.text[language]}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
                     </div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </motion.section>
 
       {/* CTA Section */}
       <motion.section
+        ref={ctaRef}
         initial="hidden"
-        animate="visible"
+        animate={ctaInView ? "visible" : "hidden"}
         variants={containerVariants}
         style={{
-          background: 'var(--dark-background)',
-          color: 'var(--text-light)',
           padding: 'var(--spacing-2xl) 0',
+          background: 'var(--light-green)',
         }}
       >
-        <div className="container text-center">
+        <div className="container text-center" style={{
+          maxWidth: '800px',
+          margin: '0 auto',
+          background: 'var(--medium-green)',
+          boxShadow: '0 10px 30px rgba(16, 185, 129, 0.15)',
+          padding: 'var(--spacing-2xl)',
+          borderRadius: 'var(--border-radius-lg)',
+        }}>
           <motion.h2
             variants={itemVariants}
             style={{
-              fontSize: 'var(--font-size-3xl)',
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
               marginBottom: 'var(--spacing-lg)',
+              fontWeight: '800',
             }}
           >
             {language === 'en'
-              ? 'Ready to Get Started?'
-              : 'Gotowy do Rozpoczęcia?'}
+              ? 'Ready to Transform Your Business?'
+              : 'Gotowy na Transformację Swojej Firmy?'}
           </motion.h2>
           <motion.p
             variants={itemVariants}
             style={{
               fontSize: 'var(--font-size-lg)',
-              maxWidth: '600px',
-              margin: '0 auto var(--spacing-xl)',
+              marginBottom: 'var(--spacing-xl)',
+              opacity: 0.9,
             }}
           >
             {language === 'en'
               ? 'Contact us today to discuss how we can help automate and optimize your business processes'
               : 'Skontaktuj się z nami już dziś, aby omówić, jak możemy pomóc zautomatyzować i zoptymalizować Twoje procesy biznesowe'}
           </motion.p>
-          <motion.div
-            variants={itemVariants}
-          >
-            <Link
-              to="/contact"
-              style={{
-                background: 'var(--accent-color)',
-                color: 'var(--text-primary)',
-                padding: 'var(--spacing-md) var(--spacing-xl)',
-                borderRadius: 'var(--border-radius-md)',
-                fontWeight: '600',
-                display: 'inline-block',
-              }}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--spacing-lg)', flexWrap: 'wrap' }}>
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              {language === 'en' ? 'Contact Us' : 'Skontaktuj się z Nami'}
-            </Link>
-          </motion.div>
+              <Link
+                to="/contact"
+                style={{
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+                  color: '#fff',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                }}
+              >
+                {language === 'en' ? 'Contact Us' : 'Skontaktuj się z Nami'}
+                <FaPhoneAlt />
+              </Link>
+            </motion.div>
+            <motion.div
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/how-it-works"
+                style={{
+                  background: 'transparent',
+                  color: 'var(--primary-color)',
+                  padding: 'var(--spacing-md) var(--spacing-xl)',
+                  borderRadius: 'var(--border-radius-md)',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 'var(--spacing-sm)',
+                  border: '2px solid var(--primary-color)',
+                }}
+              >
+                {language === 'en' ? 'Learn More' : 'Dowiedz się więcej'}
+                <FaArrowRight />
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
     </div>

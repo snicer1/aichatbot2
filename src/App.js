@@ -10,7 +10,6 @@ const Footer = React.lazy(() => import('./components/layout/Footer'));
 const Home = React.lazy(() => import('./components/pages/Home'));
 const Services = React.lazy(() => import('./components/pages/Services'));
 const HowItWorks = React.lazy(() => import('./components/pages/HowItWorks'));
-const CaseStudies = React.lazy(() => import('./components/pages/CaseStudies'));
 const Blog = React.lazy(() => import('./components/pages/Blog'));
 const Contact = React.lazy(() => import('./components/pages/Contact'));
 
@@ -49,7 +48,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

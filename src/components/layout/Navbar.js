@@ -39,7 +39,6 @@ const Navbar = () => {
     { path: '/', label: { en: 'Home', pl: 'Strona główna' } },
     { path: '/services', label: { en: 'Solutions', pl: 'Rozwiązania' } },
     { path: '/how-it-works', label: { en: 'Process', pl: 'Proces' } },
-    { path: '/case-studies', label: { en: 'Team', pl: 'Zespół' } },
   ];
 
   useEffect(() => {
