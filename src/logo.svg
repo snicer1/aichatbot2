@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="248" fill="#0066cc"/>
+  
+  <!-- AI Letters -->
+  <path d="M160 140L200 372H240L280 140H240L215 310L190 140H160Z" fill="white"/>
+  <path d="M300 140V372H340V290H380C420 290 440 270 440 215C440 160 420 140 380 140H300ZM340 180H370C390 180 400 190 400 215C400 240 390 250 370 250H340V180Z" fill="white"/>
+  
+  <!-- Stream Lines -->
+  <path d="M120 160C180 160 220 200 240 240" stroke="#00ff9d" stroke-width="12" stroke-linecap="round"/>
+  <path d="M120 240C180 240 220 280 240 320" stroke="#00ff9d" stroke-width="12" stroke-linecap="round"/>
+  <path d="M120 320C180 320 220 360 240 400" stroke="#00ff9d" stroke-width="12" stroke-linecap="round"/>
+</svg>
