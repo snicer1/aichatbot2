@@ -102,9 +102,11 @@ const Navbar = () => {
         left: 0,
         right: 0,
         zIndex: 1000,
-        background: isScrolled ? 'rgba(93, 93, 255, 0.95)' : 'rgba(93, 93, 255, 0.85)',
-        backdropFilter: 'blur(8px)',
-        boxShadow: '0 2px 10px rgba(0, 0, 0, 0.05)',
+        background: isScrolled
+          ? 'var(--nav-background-scrolled)'
+          : 'transparent',
+        backdropFilter: isScrolled ? 'blur(8px)' : 'none',
+        boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
         transition: 'var(--transition-normal)',
         fontFamily: 'var(--font-secondary)',
         padding: '0 2rem',
@@ -141,7 +143,9 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
               style={{
-                color: isActive(item.path) ? 'white' : 'rgba(255, 255, 255, 0.8)',
+                color: isActive(item.path)
+                  ? (isScrolled ? 'white' : 'var(--primary-color)')
+                  : (isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'var(--text-primary)'),
                 textDecoration: 'none',
                 fontWeight: isActive(item.path) ? '700' : '600',
                 fontSize: 'var(--font-size-base)',
@@ -149,7 +153,7 @@ const Navbar = () => {
                 padding: 'var(--spacing-sm) var(--spacing-md)',
                 transition: 'var(--transition-normal)',
                 ':hover': {
-                  color: 'var(--primary-color)',
+                  color: isScrolled ? 'white' : 'var(--primary-color)',
                 },
                 ':after': isActive(item.path) ? {
                   content: '""',
@@ -158,7 +162,7 @@ const Navbar = () => {
                   left: 'var(--spacing-md)',
                   right: 'var(--spacing-md)',
                   height: '3px',
-                  background: 'white',
+                  background: isScrolled ? 'white' : 'var(--primary-color)',
                   borderRadius: 'var(--border-radius-full)',
                 } : {},
               }}
@@ -175,9 +179,9 @@ const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: 'var(--spacing-xs)',
-                background: 'rgba(255, 255, 255, 0.2)',
+                background: isScrolled ? 'rgba(255, 255, 255, 0.2)' : 'rgba(16, 185, 129, 0.2)',
                 border: 'none',
-                color: 'white',
+                color: isScrolled ? 'white' : 'var(--primary-color)',
                 padding: 'var(--spacing-xs) var(--spacing-sm)',
                 borderRadius: 'var(--border-radius-md)',
                 fontSize: 'var(--font-size-sm)',
@@ -185,7 +189,7 @@ const Navbar = () => {
                 transition: 'var(--transition-fast)',
                 cursor: 'pointer',
                 ':hover': {
-                  background: 'rgba(255, 255, 255, 0.3)',
+                  background: isScrolled ? 'rgba(255, 255, 255, 0.3)' : 'rgba(16, 185, 129, 0.3)',
                 }
               }}
             >
@@ -223,10 +227,10 @@ const Navbar = () => {
                         display: 'block',
                         width: '100%',
                         padding: 'var(--spacing-sm) var(--spacing-lg)',
-                        background: language === lang.code ? 'var(--medium-purple)' : 'transparent',
+                        background: language === lang.code ? 'var(--medium-green)' : 'transparent',
                         color: 'var(--text-primary)',
                         border: 'none',
-                        borderBottom: '1px solid var(--medium-purple)',
+                        borderBottom: '1px solid var(--medium-green)',
                         fontSize: 'var(--font-size-sm)',
                         textAlign: 'left',
                         cursor: 'pointer',
@@ -248,17 +252,17 @@ const Navbar = () => {
           <Link
             to="/contact"
             style={{
-              background: 'white',
-              color: 'var(--primary-color)',
+              background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
+              color: 'white',
               padding: 'var(--spacing-sm) var(--spacing-xl)',
               borderRadius: 'var(--border-radius-md)',
               fontWeight: '600',
               textDecoration: 'none',
               transition: 'var(--transition-normal)',
-              boxShadow: '0 4px 10px rgba(93, 93, 255, 0.2)',
+              boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
               ':hover': {
                 transform: 'translateY(-2px)',
-                boxShadow: '0 6px 15px rgba(93, 93, 255, 0.25)',
+                boxShadow: '0 6px 15px rgba(16, 185, 129, 0.25)',
               }
             }}
           >
@@ -277,9 +281,9 @@ const Navbar = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'white',
+            background: isScrolled ? 'var(--primary-color)' : 'white',
             border: 'none',
-            color: 'var(--primary-color)',
+            color: isScrolled ? 'white' : 'var(--primary-color)',
             fontSize: '24px',
             cursor: 'pointer',
             padding: '8px',
@@ -288,6 +292,7 @@ const Navbar = () => {
             width: '40px',
             height: '40px',
             boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)',
+            transition: 'var(--transition-normal)',
           }}
         >
           {isOpen ? <RiCloseLine /> : <RiMenu3Line />}
@@ -326,7 +331,7 @@ const Navbar = () => {
                   bottom: 0,
                   width: '80%',
                   maxWidth: '350px',
-                  background: 'var(--primary-color)',
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                   backdropFilter: 'blur(10px)',
                   padding: 'calc(var(--spacing-2xl) + 60px) var(--spacing-lg) var(--spacing-2xl)',
                   display: 'flex',
@@ -392,12 +397,12 @@ const Navbar = () => {
                           flex: 1,
                           padding: 'var(--spacing-sm)',
                           background: language === lang.code
-                            ? 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))'
+                            ? 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))'
                             : 'white',
                           color: language === lang.code ? 'white' : 'var(--text-secondary)',
                           border: language === lang.code
                             ? 'none'
-                            : '1px solid var(--medium-purple)',
+                            : '1px solid var(--medium-green)',
                           borderRadius: 'var(--border-radius-md)',
                           fontSize: 'var(--font-size-sm)',
                           fontWeight: '500',

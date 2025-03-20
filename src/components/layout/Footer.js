@@ -13,10 +13,21 @@ const Footer = () => {
 
   return (
     <footer style={{
-      background: 'var(--light-purple)',
+      background: 'var(--light-green)',
       color: 'var(--text-primary)',
       padding: 'var(--spacing-2xl) 0 var(--spacing-lg)',
+      position: 'relative',
+      overflow: 'hidden',
     }}>
+      {/* Gradient overlay */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '5px',
+        background: 'linear-gradient(90deg, var(--gradient-start), var(--gradient-end))',
+      }} />
       <div className="container" style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -52,9 +63,10 @@ const Footer = () => {
               <a
                 href="#"
                 style={{
-                  color: 'var(--text-primary)',
+                  color: 'var(--primary-color)',
                   fontSize: 'var(--font-size-lg)',
                   textDecoration: 'none',
+                  transition: 'var(--transition-fast)',
                 }}
               >
                 <FaYoutube />
@@ -62,9 +74,10 @@ const Footer = () => {
               <a
                 href="#"
                 style={{
-                  color: 'var(--text-primary)',
+                  color: 'var(--primary-color)',
                   fontSize: 'var(--font-size-lg)',
                   textDecoration: 'none',
+                  transition: 'var(--transition-fast)',
                 }}
               >
                 in
@@ -95,8 +108,12 @@ const Footer = () => {
                 <a
                   href="mailto:contact@aistream.com"
                   style={{
-                    color: 'var(--text-primary)',
+                    color: 'var(--primary-color)',
                     textDecoration: 'none',
+                    transition: 'var(--transition-fast)',
+                    ':hover': {
+                      color: 'var(--secondary-color)',
+                    }
                   }}
                 >
                   contact@aistream.com

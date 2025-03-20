@@ -158,13 +158,47 @@ const Home = () => {
           minHeight: '90vh',
           display: 'flex',
           alignItems: 'center',
-          background: 'var(--light-purple)',
+          background: 'linear-gradient(135deg, var(--light-green), var(--medium-green))',
           color: 'var(--text-primary)',
           padding: 'var(--spacing-2xl) 0',
           position: 'relative',
           overflow: 'hidden',
         }}
       >
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.2) 100%)',
+          zIndex: 0,
+        }} />
+        
+        {/* Animated shapes for visual interest */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: '5%',
+          width: '300px',
+          height: '300px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
+        <div style={{
+          position: 'absolute',
+          bottom: '10%',
+          left: '5%',
+          width: '200px',
+          height: '200px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(5, 150, 105, 0.15) 0%, rgba(5, 150, 105, 0) 70%)',
+          zIndex: 0,
+        }} />
+        
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.h1
             variants={itemVariants}
@@ -212,7 +246,7 @@ const Home = () => {
               <Link
                 to="/contact"
                 style={{
-                  background: '#000',
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                   color: '#fff',
                   padding: 'var(--spacing-md) var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-md)',
@@ -222,6 +256,7 @@ const Home = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 'var(--spacing-sm)',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                 }}
               >
                 {language === 'en' ? "Let's talk" : 'Porozmawiajmy'}
@@ -236,7 +271,7 @@ const Home = () => {
                 to="/services"
                 style={{
                   background: 'transparent',
-                  color: '#000',
+                  color: 'var(--primary-color)',
                   padding: 'var(--spacing-md) var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-md)',
                   fontWeight: '600',
@@ -245,7 +280,7 @@ const Home = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 'var(--spacing-sm)',
-                  border: '2px solid #000',
+                  border: '2px solid var(--primary-color)',
                 }}
               >
                 {language === 'en' ? "Our Services" : 'Nasze Usługi'}
@@ -264,7 +299,7 @@ const Home = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--light-purple)',
+          background: 'var(--light-green)',
         }}
       >
         <div className="container">
@@ -306,7 +341,8 @@ const Home = () => {
                 style={{
                   padding: 'var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-lg)',
-                  background: 'var(--medium-purple)',
+                  background: 'var(--medium-green)',
+                  boxShadow: '0 4px 15px rgba(16, 185, 129, 0.1)',
                   transition: 'var(--transition-normal)',
                 }}
               >
@@ -318,7 +354,7 @@ const Home = () => {
                   <service.icon
                     style={{
                       fontSize: 'var(--font-size-3xl)',
-                      color: 'var(--text-primary)',
+                      color: 'var(--primary-color)',
                       marginBottom: 'var(--spacing-md)',
                     }}
                   />
@@ -354,8 +390,9 @@ const Home = () => {
                       style={{
                         display: 'inline-block',
                         padding: 'var(--spacing-sm) var(--spacing-lg)',
-                        background: '#000',
+                        background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                         color: '#fff',
+                        boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                         borderRadius: 'var(--border-radius-md)',
                         textDecoration: 'none',
                         fontWeight: '600',
@@ -380,7 +417,7 @@ const Home = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: '#fff',
+          background: 'linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 1) 100%)',
         }}
       >
         <div className="container">
@@ -419,8 +456,9 @@ const Home = () => {
               style={{
                 display: 'inline-block',
                 padding: 'var(--spacing-md) var(--spacing-xl)',
-                background: '#000',
+                background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                 color: '#fff',
+                boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                 borderRadius: 'var(--border-radius-md)',
                 textDecoration: 'none',
                 fontWeight: '600',
@@ -447,7 +485,8 @@ const Home = () => {
                 <div style={{
                   width: '40px',
                   height: '40px',
-                  background: 'var(--light-purple)',
+                  background: 'var(--light-green)',
+                  color: 'var(--primary-color)',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -485,7 +524,7 @@ const Home = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--light-purple)',
+          background: 'var(--light-green)',
         }}
       >
         <div className="container">
@@ -537,7 +576,8 @@ const Home = () => {
                   borderRadius: '16px',
                   overflow: 'hidden',
                   margin: '0 auto var(--spacing-md)',
-                  background: 'var(--medium-purple)',
+                  background: 'var(--medium-green)',
+                  boxShadow: '0 8px 20px rgba(16, 185, 129, 0.15)',
                 }}>
                   <img
                     src={member.image}
@@ -579,7 +619,7 @@ const Home = () => {
                   <a
                     href="#"
                     style={{
-                      color: 'var(--text-primary)',
+                      color: 'var(--primary-color)',
                       marginRight: 'var(--spacing-md)',
                     }}
                   >
@@ -600,13 +640,14 @@ const Home = () => {
         variants={containerVariants}
         style={{
           padding: 'var(--spacing-2xl) 0',
-          background: 'var(--light-purple)',
+          background: 'var(--light-green)',
         }}
       >
         <div className="container text-center" style={{
           maxWidth: '800px',
           margin: '0 auto',
-          background: 'var(--medium-purple)',
+          background: 'var(--medium-green)',
+          boxShadow: '0 10px 30px rgba(16, 185, 129, 0.15)',
           padding: 'var(--spacing-2xl)',
           borderRadius: 'var(--border-radius-lg)',
         }}>
@@ -643,8 +684,9 @@ const Home = () => {
               <Link
                 to="/contact"
                 style={{
-                  background: '#000',
+                  background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                   color: '#fff',
+                  boxShadow: '0 4px 10px rgba(16, 185, 129, 0.2)',
                   padding: 'var(--spacing-md) var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-md)',
                   fontWeight: '600',
@@ -667,7 +709,7 @@ const Home = () => {
                 href="mailto:contact@aistream.com"
                 style={{
                   background: 'transparent',
-                  color: '#000',
+                  color: 'var(--primary-color)',
                   padding: 'var(--spacing-md) var(--spacing-xl)',
                   borderRadius: 'var(--border-radius-md)',
                   fontWeight: '600',
@@ -675,7 +717,7 @@ const Home = () => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 'var(--spacing-sm)',
-                  border: '2px solid #000',
+                  border: '2px solid var(--primary-color)',
                 }}
               >
                 {language === 'en' ? 'Email Us' : 'Wyślij Email'}
