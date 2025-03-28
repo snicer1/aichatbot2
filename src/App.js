@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Layout Components
 const Navbar = React.lazy(() => import('./components/layout/Navbar'));
 const Footer = React.lazy(() => import('./components/layout/Footer'));
+const ChatbotWidget = React.lazy(() => import('./components/layout/ChatbotWidget'));
 
 // Page Components
 const Home = React.lazy(() => import('./components/pages/Home'));
@@ -54,6 +55,7 @@ function App() {
           </AnimatePresence>
         </main>
         <Footer />
+        <ChatbotWidget />
       </Suspense>
     </div>
   );
